@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eventra | My Registrations</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#434654",
+                    "secondary": "#5e4db9",
+                    "surface-variant": "#e1e3e4",
+                    "on-primary-fixed": "#001848",
+                    "secondary-fixed": "#e5deff",
+                    "primary-fixed": "#dae2ff",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#341d8d",
+                    "surface-container-low": "#f3f4f5",
+                    "surface-container-high": "#e7e8e9",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "background": "#f8f9fa",
+                    "surface-bright": "#f8f9fa",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface": "#f8f9fa",
+                    "on-tertiary-fixed": "#380d00",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "outline": "#737685",
+                    "tertiary-container": "#a33500",
+                    "inverse-on-surface": "#f0f1f2",
+                    "secondary-container": "#9f8eff",
+                    "outline-variant": "#c3c6d6",
+                    "surface-container": "#edeeef",
+                    "on-primary-container": "#c4d2ff",
+                    "on-tertiary-container": "#ffc6b2",
+                    "on-secondary-fixed": "#1a0063",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#b2c5ff",
+                    "tertiary-fixed": "#ffdbcf",
+                    "on-background": "#191c1d",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#191c1d",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#d9dadb",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#7b2600",
+                    "on-secondary-fixed-variant": "#4633a0",
+                    "inverse-surface": "#2e3132",
+                    "secondary-fixed-dim": "#c9bfff",
+                    "primary-container": "#0052cc",
+                    "surface-tint": "#0c56d0",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "primary": "#003d9b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(24px);
+      }
+      .premium-gradient {
+        background: linear-gradient(135deg, #003D9B 0%, #0052CC 100%);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar Component -->
+<nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-blue-700 dark:text-blue-400 font-headline">Eventra</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 transition-colors font-headline headline-sm" href="#">Home</a>
+<a class="text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700 font-headline headline-sm" href="#">Events</a>
+<div class="flex items-center gap-3 pl-4 border-l border-surface-container">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold text-xs">JS</div>
+<span class="text-on-surface font-medium text-sm">Julian Simmons</span>
+</div>
+</div>
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-6 py-12">
+<!-- Header & Greeting Section -->
+<header class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="text-primary font-label label-md uppercase tracking-widest font-bold mb-2 block">Dashboard Overview</span>
+<h1 class="font-headline font-extrabold text-4xl lg:text-5xl tracking-tight text-on-surface mb-2">Welcome back, Julian</h1>
+<p class="text-on-surface-variant max-w-xl">Manage your event registrations, track attendance, and explore upcoming academic symposiums and cultural showcases.</p>
+</div>
+<div class="flex gap-3">
+<button class="premium-gradient text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined text-sm">explore</span>
+                        Explore Events
+                    </button>
+</div>
+</div>
+</header>
+<!-- Stats Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-b-4 border-primary group hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-primary-fixed rounded-lg text-on-primary-fixed">
+<span class="material-symbols-outlined">how_to_reg</span>
+</div>
+<span class="text-success_green font-bold text-sm">+2 this month</span>
+</div>
+<div class="text-on-surface-variant font-label label-md uppercase tracking-widest mb-1">Total Registered</div>
+<div class="text-4xl font-headline font-black text-on-surface">12</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-b-4 border-secondary group hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-secondary-fixed rounded-lg text-on-secondary-fixed">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+</div>
+<div class="text-on-surface-variant font-label label-md uppercase tracking-widest mb-1">Upcoming</div>
+<div class="text-4xl font-headline font-black text-on-surface">04</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-b-4 border-surface-container-highest group hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-surface-container-high rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined">verified</span>
+</div>
+</div>
+<div class="text-on-surface-variant font-label label-md uppercase tracking-widest mb-1">Attended</div>
+<div class="text-4xl font-headline font-black text-on-surface">08</div>
+</div>
+</section>
+<!-- Registration List Section -->
+<section>
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline headline-sm font-semibold text-2xl">My Registered Events</h2>
+<div class="flex items-center gap-4 text-sm font-medium text-on-surface-variant">
+<button class="hover:text-primary underline decoration-2 underline-offset-4">Active (4)</button>
+<button class="hover:text-primary">Past (8)</button>
+</div>
+</div>
+<!-- Horizontal Cards Stack -->
+<div class="space-y-6">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col md:flex-row hover:bg-white transition-all group">
+<div class="md:w-64 h-48 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern architectural auditorium with soft warm lighting and people seated for a professional tech conference" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA84r7J6CCKwz2CmxzS_kiz3-EmUPsJ_g42AQQWOicmvCZ10mBBXc7ljcNZnZrmg-stCcznoKFQvS2cSef99ixHBHUnd5gaLb4MMCJjaMikxWqzcyFE8x3q80BBst1UnSEJxF175sOZpPeuuYW0vKJBFsAKjqvnXvkAm6nipIMRSwi2EQEY2D7fedIXmAa88TiZ0V4U3R0Qv2QBiXmQBxrKCXTj7GV7LhR95iFPZWpYyIygikpwdA6eydxwhxiKkbzoGn5Q5H1gap8"/>
+</div>
+<div class="flex-1 p-8 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Academic Symposium</span>
+<span class="flex items-center gap-1 text-on-surface-variant text-sm font-medium">
+<span class="material-symbols-outlined text-base">calendar_month</span>
+                                    Oct 24, 2023 • 10:00 AM
+                                </span>
+</div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-2">The Future of AI in Digital Curation</h3>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+                                    Main Hall, Tech Tower
+                                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">confirmation_number</span>
+                                    Seat A-42
+                                </span>
+</div>
+</div>
+<div class="mt-8 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-surface-container">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-success_green shadow-[0_0_8px_rgba(0,255,0,0.4)]"></span>
+<span class="font-bold text-sm text-on-surface uppercase tracking-tight">Confirmed</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-error font-medium text-sm hover:underline underline-offset-4 decoration-1">Unregister</button>
+<button class="bg-surface-container-high text-on-surface font-bold px-5 py-2 rounded-lg flex items-center gap-2 hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-lg">qr_code_2</span>
+                                    View QR
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col md:flex-row hover:bg-white transition-all group">
+<div class="md:w-64 h-48 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Vibrant outdoor festival at night with colorful lights, silhouettes of people dancing, and a festive atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCezAGAsQkZPe1ieFLRYxwrqdhzW439lBo5V3Cl5g4z-r2S1SdWSaZDMzlh_rG51BvPRfEuGzp3_HFOMG8Xu5QteoxHy2UTHgIqbLG8OSn0dEq8J7y2mn77Ir7oQPfm5EJSv64lmiwzkJUhrqWRqTjbqtlQuF5H3__c7ho1X5638Xw_iukjw59FwCj1H_O1dzQIiWykg2_5aIuC2AnPhX1mgu_4vLRRcSJK2HrCw88MQBRf92UPeLHLHLouv6xA9B2SRdEwabXzUTA"/>
+</div>
+<div class="flex-1 p-8 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Social Event</span>
+<span class="flex items-center gap-1 text-on-surface-variant text-sm font-medium">
+<span class="material-symbols-outlined text-base">calendar_month</span>
+                                    Oct 28, 2023 • 07:00 PM
+                                </span>
+</div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-2">Annual Autumn Gala &amp; Networking</h3>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+                                    Grand Ballroom
+                                </span>
+<span class="flex items-center gap-1 text-secondary font-bold">
+<span class="material-symbols-outlined text-base">stars</span>
+                                    VIP Guest
+                                </span>
+</div>
+</div>
+<div class="mt-8 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-surface-container">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-success_green shadow-[0_0_8px_rgba(0,255,0,0.4)]"></span>
+<span class="font-bold text-sm text-on-surface uppercase tracking-tight">Confirmed</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-error font-medium text-sm hover:underline underline-offset-4 decoration-1">Unregister</button>
+<button class="bg-surface-container-high text-on-surface font-bold px-5 py-2 rounded-lg flex items-center gap-2 hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-lg">qr_code_2</span>
+                                    View QR
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col md:flex-row hover:bg-white transition-all group opacity-80">
+<div class="md:w-64 h-48 md:h-auto overflow-hidden grayscale">
+<img class="w-full h-full object-cover" data-alt="Interior of a corporate workshop with whiteboards, colorful sticky notes, and professional equipment in soft focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzRDkwcsG5csatohT-nVctYOGpp54jPN6kRNb_IdcZWtn-ApzHVZ9R6kgWx3eSRnlDVy7K0LnGkjVXnc8Q-bLznIalvJYtsL_01EPgrj9NQngCGthG8UPN0SPQFNRcbl5gjWEVeyAUXMuyO6k1eGh7Thhk6Vzh84tZoBMNij-pogEXRlD6cVhFTXc50neUoQM-Dg7svlwvzBK2OgZ9kl9QoQT3-qN6bKJNwTkjbrzJynS6w1HE0vf_qpExKf49FpXTlNcVCusy560"/>
+</div>
+<div class="flex-1 p-8 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Workshop</span>
+<span class="flex items-center gap-1 text-on-surface-variant text-sm font-medium">
+<span class="material-symbols-outlined text-base">calendar_month</span>
+                                    Nov 02, 2023 • 02:00 PM
+                                </span>
+</div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-2">Sustainable Design Principles</h3>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+                                    Studio B
+                                </span>
+</div>
+</div>
+<div class="mt-8 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-surface-container">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-tertiary-container shadow-[0_0_8px_rgba(163,53,0,0.4)]"></span>
+<span class="font-bold text-sm text-on-surface uppercase tracking-tight">Waitlisted</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-error font-medium text-sm hover:underline underline-offset-4 decoration-1">Cancel Waitlist</button>
+<button class="bg-surface-container-high text-on-surface/40 font-bold px-5 py-2 rounded-lg flex items-center gap-2 cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-lg">qr_code_2</span>
+                                    Pending
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Side Decoration (The Academic Curator Style) -->
+<div class="fixed top-1/2 -right-12 -translate-y-1/2 rotate-90 hidden lg:block pointer-events-none">
+<span class="text-surface-container font-headline font-black text-[120px] opacity-40 select-none">EVENTRA</span>
+</div>
+<!-- QR Modal (Placeholder UI) -->
+<div class="hidden fixed inset-0 z-[100] flex items-center justify-center p-6">
+<div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-md"></div>
+<div class="relative bg-surface-container-lowest p-10 rounded-xl shadow-2xl max-w-sm w-full text-center">
+<h4 class="font-headline font-bold text-xl mb-6">Entry Pass</h4>
+<div class="bg-surface-dim p-4 rounded-lg inline-block mb-6 shadow-inner">
+<div class="w-48 h-48 bg-white p-4 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[100px] text-on-surface">qr_code_2</span>
+</div>
+</div>
+<p class="font-bold text-on-surface mb-2">The Future of AI</p>
+<p class="text-on-surface-variant text-sm mb-8">Show this code at the reception desk for instant check-in.</p>
+<button class="w-full bg-surface-container-high py-3 rounded-full font-bold hover:bg-surface-container-highest transition-colors">Close</button>
+</div>
+</div>
+<script src="../shared-navigation.js"></script>
+</body></html>

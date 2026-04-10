@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QR Attendance Scanner - Eventra Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#434654",
+                        "secondary": "#5e4db9",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary-fixed": "#001848",
+                        "secondary-fixed": "#e5deff",
+                        "primary-fixed": "#dae2ff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#341d8d",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "background": "#f8f9fa",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface": "#f8f9fa",
+                        "on-tertiary-fixed": "#380d00",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "outline": "#737685",
+                        "tertiary-container": "#a33500",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-container": "#9f8eff",
+                        "outline-variant": "#c3c6d6",
+                        "surface-container": "#edeeef",
+                        "on-primary-container": "#c4d2ff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "on-secondary-fixed": "#1a0063",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-background": "#191c1d",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#7b2600",
+                        "on-secondary-fixed-variant": "#4633a0",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed-dim": "#c9bfff",
+                        "primary-container": "#0052cc",
+                        "surface-tint": "#0c56d0",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "primary": "#003d9b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scanner-overlay {
+            background: linear-gradient(rgba(0, 61, 155, 0.1) 50%, rgba(0, 61, 155, 0.2) 50%);
+            background-size: 100% 4px;
+        }
+        .scan-line {
+            animation: scan 3s ease-in-out infinite;
+        }
+        @keyframes scan {
+            0%, 100% { top: 0%; }
+            50% { top: 100%; }
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background selection:bg-primary-fixed">
+<!-- Admin Sidebar -->
+<aside class="h-screen w-64 fixed left-0 top-0 flex flex-col bg-slate-50 dark:bg-slate-950 z-50">
+<div class="flex flex-col h-full p-4 gap-2">
+<div class="px-4 py-6">
+<span class="text-xl font-bold text-slate-900 dark:text-white font-headline">Eventra</span>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all font-label text-[0.75rem] uppercase tracking-widest font-bold flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all font-label text-[0.75rem] uppercase tracking-widest font-bold flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+                    Events
+                </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all font-label text-[0.75rem] uppercase tracking-widest font-bold flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                    Add Event
+                </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all font-label text-[0.75rem] uppercase tracking-widest font-bold flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                    Participants
+                </a>
+<a class="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-lg px-4 py-3 font-label text-[0.75rem] uppercase tracking-widest font-bold flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+                    Attendance Scanner
+                </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all font-label text-[0.75rem] uppercase tracking-widest font-bold flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                    Attendance Report
+                </a>
+</nav>
+<div class="mt-auto border-t border-slate-200 dark:border-slate-800 pt-4 flex flex-col gap-1">
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all font-label text-[0.75rem] uppercase tracking-widest font-bold flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all font-label text-[0.75rem] uppercase tracking-widest font-bold flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                    Logout
+                </a>
+</div>
+</div>
+</aside>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-center px-8 h-16">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-highest rounded-full border-none text-sm focus:ring-2 focus:ring-primary/40" placeholder="Search event to scan..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full p-2 relative transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined text-slate-500">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full p-1 pr-4 cursor-pointer transition-all">
+<span class="material-symbols-outlined text-3xl text-primary">account_circle</span>
+<div class="text-left">
+<p class="text-xs font-bold text-slate-900 dark:text-white">Admin Profile</p>
+<p class="text-[10px] text-slate-500">Event Management</p>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen bg-surface">
+<div class="max-w-7xl mx-auto p-8">
+<!-- Page Header with Dropdown -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+<div>
+<h1 class="font-headline headline-sm font-semibold tracking-tight text-slate-900">QR Attendance Scanner</h1>
+<p class="text-on-surface-variant body-md mt-1">Real-time check-in and validation for your attendees.</p>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-lowest p-3 rounded-xl shadow-sm">
+<span class="text-xs font-bold text-primary uppercase tracking-widest font-label">Active Event:</span>
+<div class="relative">
+<select class="appearance-none bg-surface-container-high border-none rounded-lg px-4 pr-10 py-2 text-sm font-medium focus:ring-2 focus:ring-primary/20 cursor-pointer">
+<option>Global Tech Summit 2024</option>
+<option>Design Masters Workshop</option>
+<option>AI Innovation Expo</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Scanner Workspace -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Center Scanner UI -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<div class="relative bg-surface-dim rounded-xl overflow-hidden aspect-video flex items-center justify-center border-4 border-surface-container-lowest shadow-lg">
+<!-- Camera Placeholder Background -->
+<div class="absolute inset-0 bg-slate-900">
+<div class="w-full h-full opacity-40 scanner-overlay"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-700 text-9xl">photo_camera</span>
+</div>
+</div>
+<!-- Scan Frame Overlay -->
+<div class="relative w-64 h-64 border-2 border-primary/50 rounded-xl flex items-center justify-center">
+<div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-primary rounded-tl-lg"></div>
+<div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-primary rounded-tr-lg"></div>
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-primary rounded-bl-lg"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-primary rounded-br-lg"></div>
+<!-- Animated Scan Line -->
+<div class="absolute left-0 w-full h-0.5 bg-primary/80 shadow-[0_0_15px_rgba(0,61,155,0.8)] scan-line"></div>
+</div>
+<!-- Badge Overlay -->
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-2 shadow-sm">
+<div class="w-2 h-2 bg-error rounded-full animate-pulse"></div>
+<span class="text-[10px] font-bold uppercase tracking-tighter text-slate-900">Live Camera Stream</span>
+</div>
+</div>
+<!-- Controls/Instructions -->
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-xl flex flex-col items-center text-center gap-2 transition-all hover:bg-surface-container-high cursor-pointer">
+<span class="material-symbols-outlined text-primary">flashlight_on</span>
+<span class="text-xs font-semibold">Toggle Flash</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl flex flex-col items-center text-center gap-2 transition-all hover:bg-surface-container-high cursor-pointer">
+<span class="material-symbols-outlined text-primary">flip_camera_ios</span>
+<span class="text-xs font-semibold">Switch Lens</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl flex flex-col items-center text-center gap-2 transition-all hover:bg-surface-container-high cursor-pointer">
+<span class="material-symbols-outlined text-primary">keyboard</span>
+<span class="text-xs font-semibold">Manual Code</span>
+</div>
+</div>
+</div>
+<!-- Right Side Panel: Scan Results -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- Result Card - Success State -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm relative overflow-hidden border-l-4 border-primary">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-surface-container">
+<img alt="Participant Avatar" class="w-full h-full object-cover" data-alt="portrait of a professional woman with a warm smile and friendly expression in studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFIZB2xWA8dUKP4JLN8Up39q_iKerp416dNsp7J187UNzcOTgKWuoz7_ggw8VSR2agDYGS1n3TAU2x1J_a2Nob4g6vhAs2nYbXz1PmgkWfr88s5-s4aBYmrONs5YyEwdIRCcz3zls2kEO9qJRTF6lwlGX4Cq95xNdq85VrOzfOsBj2-0YA7WxuzExyDLAILiaBTS2MvQmil0B2XgrISP11gTJiaDC_-oG-dtdKU_nbkaysr_lRFb43WtsrxMDxKgq5x3d-dbxPvyQ"/>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900">Sarah Jenkins</h3>
+<p class="text-xs text-slate-500">ID: ETR-44920-SJ</p>
+</div>
+</div>
+<span class="bg-green-100 text-green-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Attendance Marked</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-sm py-2 border-b border-surface-container-low">
+<span class="text-slate-500">Ticket Type</span>
+<span class="font-semibold text-primary">VIP All-Access</span>
+</div>
+<div class="flex justify-between text-sm py-2 border-b border-surface-container-low">
+<span class="text-slate-500">Check-in Time</span>
+<span class="font-semibold">09:14 AM</span>
+</div>
+<div class="flex justify-between text-sm py-2">
+<span class="text-slate-500">Zone</span>
+<span class="font-semibold">Main Hall A, Row 2</span>
+</div>
+</div>
+<div class="mt-6 p-4 bg-green-50 rounded-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-green-600" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="text-xs font-medium text-green-800">Verified participant. Proceed to seating.</p>
+</div>
+</div>
+<!-- Result Card - Error State (Static Example) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm opacity-60 grayscale border-l-4 border-error">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400">person_off</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900">Unknown Attendee</h3>
+<p class="text-xs text-slate-500">ID: Unknown</p>
+</div>
+</div>
+<span class="bg-error-container text-on-error-container text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Invalid QR</span>
+</div>
+<div class="p-4 bg-error-container/30 rounded-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-error" data-icon="error" style="font-variation-settings: 'FILL' 1;">error</span>
+<p class="text-xs font-medium text-on-error-container">The scanned code does not match any registered participant.</p>
+</div>
+</div>
+<!-- Scan History Log -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-4 font-label">Recent History</h4>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-green-600 text-sm">person</span>
+</div>
+<span class="text-sm font-medium">David Chen</span>
+</div>
+<span class="text-[10px] text-slate-400 font-medium">2m ago</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-green-600 text-sm">person</span>
+</div>
+<span class="text-sm font-medium">Elena Rodriguez</span>
+</div>
+<span class="text-[10px] text-slate-400 font-medium">5m ago</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-error text-sm">warning</span>
+</div>
+<span class="text-sm font-medium">Ticket #X992-0</span>
+</div>
+<span class="text-[10px] text-slate-400 font-medium">8m ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Stats Area -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+<div class="bg-white/40 backdrop-blur-sm p-4 rounded-xl text-center">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest font-label mb-1">Total Checked-in</p>
+<p class="text-3xl font-black text-primary">1,248</p>
+<p class="text-[10px] text-slate-400 mt-1">out of 1,500</p>
+</div>
+<div class="bg-white/40 backdrop-blur-sm p-4 rounded-xl text-center">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest font-label mb-1">VIP Present</p>
+<p class="text-3xl font-black text-secondary">242</p>
+<p class="text-[10px] text-slate-400 mt-1">98% arrival rate</p>
+</div>
+<div class="bg-white/40 backdrop-blur-sm p-4 rounded-xl text-center border-2 border-primary/20">
+<p class="text-xs font-bold text-primary uppercase tracking-widest font-label mb-1">Active Scanners</p>
+<p class="text-3xl font-black text-slate-900">08</p>
+<p class="text-[10px] text-slate-400 mt-1">Terminal A &amp; B</p>
+</div>
+<div class="bg-white/40 backdrop-blur-sm p-4 rounded-xl text-center">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest font-label mb-1">Avg Scan Time</p>
+<p class="text-3xl font-black text-slate-900">1.4s</p>
+<p class="text-[10px] text-slate-400 mt-1">Optimized stream</p>
+</div>
+</div>
+</div>
+</main>
+<script src="../shared-navigation.js"></script>
+</body></html>

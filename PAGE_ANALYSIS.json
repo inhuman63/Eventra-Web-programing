@@ -1,0 +1,642 @@
+{
+  "project": "Eventra Event Management System",
+  "extractionDate": "2024-04-11",
+  "totalPages": 13,
+  "pages": [
+    {
+      "pageName": "landing_page",
+      "title": "Eventra | Register for Events in Minutes",
+      "pageType": "Public/Marketing",
+      "mainSections": [
+        "Top Navigation Bar with logo and CTA",
+        "Hero Section with headline and dual CTAs",
+        "Featured Events Grid (Bento-style 3-column)",
+        "How it Works (3-step process)",
+        "Features Grid (6 feature cards)",
+        "Newsletter/Email Subscription CTA",
+        "Footer with links and social"
+      ],
+      "keyHTMLStructure": {
+        "nav": "Sticky top nav with hamburger menu for mobile",
+        "hero": "Grid layout (lg:grid-cols-2) with text and image",
+        "eventCards": "3-column grid with image, category badge, date, price, CTA",
+        "processSteps": "3-column grid with icons and descriptions",
+        "featureGrid": "6-card grid with icons and text",
+        "newsletter": "Gradient section with input and button",
+        "footer": "4-column grid layout"
+      },
+      "colorScheme": {
+        "primary": "#003d9b (blue)",
+        "secondary": "#5e4db9 (purple)",
+        "tertiary": "#7b2600 (orange)",
+        "background": "#f8f9fa (light gray)",
+        "surfaces": ["surface-container-low", "surface-container-highest"],
+        "gradientPrimary": "linear-gradient(135deg, #003D9B 0%, #0052CC 100%)"
+      },
+      "typography": {
+        "headline": "Manrope (400-800 weights)",
+        "body": "Inter (400-600 weights)",
+        "label": "Inter"
+      },
+      "icons": "Material Symbols Outlined",
+      "transitions": "Smooth hover effects, translate-y on cards, opacity changes"
+    },
+    {
+      "pageName": "login_page",
+      "title": "Login | Eventra",
+      "pageType": "Authentication",
+      "mainSections": [
+        "Centered login form",
+        "Email and password inputs",
+        "Remember me checkbox",
+        "Forgot password link",
+        "Sign up link",
+        "Trusted partner logos",
+        "Testimonial/quote sidebar (desktop only)"
+      ],
+      "keyHTMLStructure": {
+        "container": "Centered max-w-[440px] with glass-card styling",
+        "form": "Vertical stack with labeled inputs",
+        "inputs": "Icon prefix inside input with focus ring",
+        "checkbox": "Custom checkbox with label",
+        "submitBtn": "Full-width gradient button with icon",
+        "links": "Text with underline hover",
+        "testimonial": "Fixed bottom-right card with image and quote"
+      },
+      "colorScheme": {
+        "primary": "#003d9b",
+        "primaryContainer": "#0052cc",
+        "background": "#f8f9fa",
+        "surfaceContainer": "#f3f4f5 and #edeeef variants",
+        "gradientBg": "Blurred gradient blobs in background"
+      },
+      "features": [
+        "Glassmorphism card",
+        "Blur effect background",
+        "Focus ring on inputs",
+        "Social proof with logos",
+        "Testimonial widget"
+      ]
+    },
+    {
+      "pageName": "sign_up_page",
+      "title": "Sign Up | Eventra",
+      "pageType": "Authentication",
+      "mainSections": [
+        "Left side: Hero image with brand overlay (desktop only)",
+        "Right side: Sign up form",
+        "Full name, email, password, confirm password fields",
+        "Submit button",
+        "Social login buttons (Google, Apple)",
+        "Link to login page"
+      ],
+      "keyHTMLStructure": {
+        "layout": "2-column grid (hidden left on mobile)",
+        "leftSide": "Background image with overlay and brand content",
+        "rightSide": "Form section with heading and inputs",
+        "formFields": "Icon-prefixed inputs with labels",
+        "socialButtons": "2-column button group with icons",
+        "divider": "Horizontal line with 'Social Access' text"
+      },
+      "colorScheme": {
+        "primary": "#003d9b",
+        "gradientEditorial": "linear-gradient(135deg, #003d9b 0%, #0052cc 100%)",
+        "secondaryFixed": "#e5deff",
+        "surfaceContainer": "#f8f9fa"
+      },
+      "interactions": [
+        "Icon-prefixed input fields",
+        "Focus ring styling",
+        "Hover effect on social buttons",
+        "Smooth transitions"
+      ]
+    },
+    {
+      "pageName": "event_listing",
+      "title": "Eventra | Explore Events",
+      "pageType": "Public/Browse",
+      "mainSections": [
+        "Top navigation (sticky)",
+        "Header with title and search bar",
+        "Filter chips (Workshops, Seminars, etc.)",
+        "Event cards grid (3-column)",
+        "Pagination/Load more button",
+        "Footer"
+      ],
+      "keyHTMLStructure": {
+        "searchBar": "Input with icon and placeholder",
+        "filterChips": "Horizontal scrollable button group with active state",
+        "eventCards": "3-column responsive grid with hover effect",
+        "cardContent": "Image, category badge, date, title, location, buttons",
+        "seatsBadge": "Absolute positioned top-right with seat count",
+        "pagination": "Load more button with text"
+      },
+      "colorScheme": {
+        "primary": "#003d9b",
+        "primaryGradient": "linear-gradient(135deg, #003d9b 0%, #0052cc 100%)",
+        "cardBackground": "surface-container-lowest",
+        "statusColors": ["primary", "secondary", "tertiary for categories"]
+      },
+      "cardFeatures": [
+        "Image with hover zoom effect",
+        "Category badge (Workshop/Seminar/Competition)",
+        "Seat availability badge",
+        "Date and time with icon",
+        "Event title",
+        "Location with icon",
+        "Register button",
+        "Details link button"
+      ]
+    },
+    {
+      "pageName": "event_details",
+      "title": "Eventra - Global AI Summit 2024",
+      "pageType": "Public/Detail",
+      "mainSections": [
+        "Hero image section with gradient overlay",
+        "Event title with category badge",
+        "Organizer info",
+        "About the event section",
+        "Conference agenda (Bento grid)",
+        "Venue location with map",
+        "Right sidebar: Event details card",
+        "QR preview box for registered users",
+        "Calendar integration button",
+        "Mobile bottom navigation"
+      ],
+      "keyHTMLStructure": {
+        "hero": "Full-width image with mask gradient and text overlay",
+        "mainLayout": "Asymmetric 2-column grid (8-4 split on large)",
+        "agendaGrid": "2-column bento layout with time-based cards",
+        "sidebarCard": "Sticky aside with event details and actions",
+        "qrBox": "Centered QR code preview with button",
+        "eventDetails": "Flex items with icon, label, and value"
+      },
+      "colorScheme": {
+        "primary": "#003d9b",
+        "gradientEditorial": "linear-gradient(135deg, #003D9B 0%, #0052CC 100%)",
+        "primaryFixed": "#dae2ff",
+        "statusGreen": "#success-green"
+      },
+      "dynamicElements": [
+        "Three-step registration flow indicators",
+        "QR code display for registered users",
+        "Availability progress bar (45/500 left)",
+        "Agenda with color-coded sessions",
+        "Add to Calendar button"
+      ]
+    },
+    {
+      "pageName": "user_dashboard",
+      "title": "Eventra | My Registrations",
+      "pageType": "Authenticated/User",
+      "mainSections": [
+        "Top navigation with user profile",
+        "Greeting header with profile photo",
+        "Stats bento grid (Total, Upcoming, Attended)",
+        "My Registered Events section",
+        "Horizontal event cards with registrations",
+        "Status indicators (Confirmed, Waitlisted)",
+        "Action buttons (Unregister, View QR)"
+      ],
+      "keyHTMLStructure": {
+        "statsGrid": "3-column bento with icons and numbers",
+        "eventCards": "Full-width horizontal cards with image on left",
+        "cardImage": "Fixed width (md:w-64) on left side",
+        "cardContent": "Flex column with details",
+        "statusBadge": "Pill-shaped badge with icon",
+        "actionButtons": "Dual action button group"
+      },
+      "colorScheme": {
+        "primary": "#003d9b",
+        "secondary": "#5e4db9",
+        "statusGreen": "#success_green",
+        "statusOrange": "tertiary-container",
+        "cardBackground": "surface-container-lowest with hover effect"
+      },
+      "userInfo": [
+        "Profile avatar with initials",
+        "User name display",
+        "Welcome message"
+      ],
+      "cardData": [
+        "Event category badge",
+        "Date and time",
+        "Event title",
+        "Location",
+        "Seat number",
+        "Registration status",
+        "Action buttons (QR, Unregister)"
+      ]
+    },
+    {
+      "pageName": "qr_ticket",
+      "title": "Eventra - Registration Successful",
+      "pageType": "Confirmation/Transactional",
+      "mainSections": [
+        "Success icon/animation",
+        "Confirmation heading",
+        "Confirmation message",
+        "Ticket card (physical object style)",
+        "Participant details",
+        "QR code display",
+        "Download and Print buttons",
+        "Support link"
+      ],
+      "keyHTMLStructure": {
+        "header": "Centered success icon with checkmark",
+        "ticketCard": "Physical ticket design with cutout holes",
+        "ticketTop": "Participant details in grid layout",
+        "perforation": "Dashed line divider",
+        "qrSection": "Centered QR code in box",
+        "actions": "Dual button group (Download/Print)",
+        "decorations": "Background gradient blobs"
+      },
+      "colorScheme": {
+        "primary": "#003d9b",
+        "gradientPremium": "linear-gradient(135deg, #003d9b 0%, #0052cc 100%)",
+        "ticketBackground": "surface-container-lowest",
+        "successGreen": "Implicit in checkmark styling"
+      },
+      "specialFeatures": [
+        "Ticket cutout design with CSS ::before/::after",
+        "Dashed perforation line",
+        "QR code as centrepiece",
+        "Physical object aesthetic",
+        "Download/Print dual actions"
+      ],
+      "ticketInfo": [
+        "Event confirmation title",
+        "Participant name",
+        "Registration ID",
+        "Pass type (VIP/Standard)",
+        "Date & time",
+        "Venue",
+        "QR code"
+      ]
+    },
+    {
+      "pageName": "admin_dashboard",
+      "title": "Eventra Admin Dashboard",
+      "pageType": "Admin/Analytics",
+      "mainSections": [
+        "Sidebar navigation",
+        "Top navigation bar with search",
+        "Page title and action buttons",
+        "Stats bento grid (4 cards)",
+        "Recent registrations table",
+        "Attendance flow chart (bar visualization)",
+        "Upcoming events list",
+        "Footer"
+      ],
+      "keyHTMLStructure": {
+        "layout": "Sidebar + main content area",
+        "statsGrid": "4-column bento with colored accents",
+        "table": "Full-width with thead/tbody and hover states",
+        "chart": "Simple bar chart with hover effects",
+        "eventsList": "Vertical stack with date boxes and details"
+      },
+      "colorScheme": {
+        "primary": "#003d9b",
+        "secondary": "#5e4db9",
+        "primaryGradient": "Linear gradient on stat card",
+        "successGreen": "#success_green",
+        "trendColor": "Uses primary/secondary for variations"
+      },
+      "adminElements": [
+        "Navigation sidebar with fixed position",
+        "Search bar in header",
+        "Stats with trend indicators (+12%, +24%, etc.)",
+        "Table with sortable columns",
+        "Bar chart for attendance",
+        "Upcoming events widget",
+        "Export and create buttons"
+      ]
+    },
+    {
+      "pageName": "add_event_admin",
+      "title": "Add New Event | Eventra Admin",
+      "pageType": "Admin/Form",
+      "mainSections": [
+        "Sidebar navigation",
+        "Top navigation bar",
+        "Page header with save/publish buttons",
+        "Form grid (8-4 split)",
+        "Basic information section",
+        "Date & venue section",
+        "Right column: Media upload, registration settings",
+        "Admin assistance card"
+      ],
+      "keyHTMLStructure": {
+        "formLayout": "Grid with lg:col-span-8 and lg:col-span-4",
+        "formSections": "Card-based containers with section headers",
+        "fieldGroups": "Grid or vertical stacks",
+        "inputs": "Text, select, textarea, date/time",
+        "mediaUpload": "Dashed border upload area",
+        "toggles": "Toggle switches for settings",
+        "assistanceCard": "Secondary-fixed colored card"
+      },
+      "colorScheme": {
+        "primary": "#003d9b",
+        "primaryGradient": "to-primary-container",
+        "secondaryFixed": "#e5deff for assistant card",
+        "inputBackground": "surface-container-highest"
+      },
+      "formFields": [
+        "Event title (text)",
+        "Category (select)",
+        "Sub-category (text)",
+        "Description (textarea)",
+        "Start date",
+        "Start time",
+        "Venue address",
+        "Media upload (image)",
+        "Seat limit (number)",
+        "Registration deadline",
+        "Enable waitlist (toggle)",
+        "Private event (toggle)"
+      ]
+    },
+    {
+      "pageName": "manage_events_admin",
+      "title": "Eventra Admin - Manage Events",
+      "pageType": "Admin/Management",
+      "mainSections": [
+        "Sidebar navigation",
+        "Top navigation with search",
+        "Page header with create button",
+        "Stats grid (4 cards)",
+        "Filter bar",
+        "Events data table",
+        "Pagination controls",
+        "Quick action cards at bottom"
+      ],
+      "keyHTMLStructure": {
+        "statsGrid": "4-column bento with colored left borders",
+        "filterBar": "Horizontal chip-style filter group",
+        "table": "Full-width with image thumbnails, inline charts",
+        "tableActions": "Icon buttons in last column (visibility, edit, participants)",
+        "quickActions": "3-column card grid at bottom"
+      },
+      "colorScheme": {
+        "primary": "#003d9b",
+        "secondary": "#5e4db9",
+        "statsBorderColors": [
+          "border-primary",
+          "border-secondary",
+          "border-surface-container-highest"
+        ],
+        "statusColors": [
+          "error-container (Nearly Full)",
+          "primary-fixed (Open)",
+          "surface-dim (Sold Out)"
+        ]
+      },
+      "tableColumns": [
+        "Event details (image, ID, name)",
+        "Date & venue",
+        "Registrations (number and progress bar)",
+        "Status badge",
+        "Action buttons"
+      ],
+      "dataPoints": [
+        "Event thumbnail",
+        "Event name and ID",
+        "Date and location",
+        "Registration count/capacity",
+        "Status indicator"
+      ]
+    },
+    {
+      "pageName": "participants_admin",
+      "title": "Event Participants - Eventra Admin",
+      "pageType": "Admin/List",
+      "mainSections": [
+        "Sidebar navigation",
+        "Top navigation with search",
+        "Page header with export and add buttons",
+        "Filter section (Event, Status, Ticket Type)",
+        "Participants table",
+        "Pagination",
+        "Stats grid (3 cards)"
+      ],
+      "keyHTMLStructure": {
+        "filterSection": "Grid of 3 select dropdowns with filter button",
+        "table": "Full-width with participant photos/avatars",
+        "tableRows": "Hover effect reveals action buttons",
+        "statsGrid": "3-column grid at bottom with colored left borders",
+        "pagination": "Standard numbered pagination"
+      },
+      "colorScheme": {
+        "primary": "#003d9b",
+        "secondary": "#5e4db9",
+        "statusGreen": "#success-green for Present",
+        "statusOrange": "tertiary-container for VIP",
+        "borders": "border-l-4 on stats cards"
+      },
+      "tableColumns": [
+        "Participant (avatar, name, email)",
+        "Registration ID",
+        "Registration date",
+        "QR status (verification icon)",
+        "Attendance (status badge)",
+        "Actions (visibility, remove on hover)"
+      ],
+      "avatarStyles": [
+        "Colored circles with initials",
+        "Profile images where available"
+      ]
+    },
+    {
+      "pageName": "attendance_report_admin",
+      "title": "Attendance Report - Eventra Admin",
+      "pageType": "Admin/Analytics",
+      "mainSections": [
+        "Sidebar navigation",
+        "Top navigation with search",
+        "Page header with print/export buttons",
+        "Filter panel (Event, Date range)",
+        "Stats grid (4 cards with metrics)",
+        "Hourly check-in flow chart",
+        "Attendee tracking log table",
+        "Footer with links"
+      ],
+      "keyHTMLStructure": {
+        "filterPanel": "Full-width card with selects and apply button",
+        "statsGrid": "4-column bento with colored left borders",
+        "chartSection": "Circular gauge chart with hourly breakdown",
+        "table": "2/3 width with participant data",
+        "pagination": "Standard at table bottom"
+      },
+      "colorScheme": {
+        "primary": "#003d9b",
+        "secondary": "#5e4db9",
+        "errorColor": "#ba1a1a",
+        "gradientStats": "Linear gradient from primary to secondary",
+        "statusColors": [
+          "green for Present",
+          "error for Absent"
+        ]
+      },
+      "metrics": [
+        "Total registrations (1,248)",
+        "Present (1,102)",
+        "Absent (146)",
+        "Attendance rate (88.3%)"
+      ],
+      "chartData": [
+        "Hourly check-in flow visualization",
+        "Morning peak (642 pax)",
+        "Afternoon sessions"
+      ]
+    },
+    {
+      "pageName": "qr_scanner_admin",
+      "title": "QR Attendance Scanner - Eventra Admin",
+      "pageType": "Admin/Real-time",
+      "mainSections": [
+        "Sidebar navigation",
+        "Top navigation",
+        "Event selector dropdown",
+        "Scanner viewport (camera placeholder)",
+        "Scan frame overlay with animated line",
+        "Scanner controls (flash, lens, manual input)",
+        "Result card (success/error states)",
+        "Scan history log",
+        "Stats footer (total, VIP, scanners, avg time)"
+      ],
+      "keyHTMLStructure": {
+        "scannerViewport": "Full video aspect ratio with frame overlay",
+        "frameOverlay": "Bordered square with corner markers",
+        "scanLine": "Animated horizontal line with animation keyframes",
+        "resultCards": "Conditional rendering for success/error states",
+        "historyLog": "Vertical list with recent scans",
+        "statsFooter": "4-column grid at bottom"
+      },
+      "colorScheme": {
+        "primary": "#003d9b",
+        "primaryLight": "rgba(0, 61, 155, 0.5)",
+        "scannerOverlay": "Linear gradient with primary tint",
+        "animationColor": "Bright primary with glow effect",
+        "successGreen": "#success-green",
+        "errorRed": "#error"
+      },
+      "animations": [
+        "Scan line moving top to bottom",
+        "Animated 3s ease-in-out loop",
+        "Camera stream lighting effect",
+        "Result card transitions"
+      ],
+      "scannerElements": [
+        "QR frame with corner markers",
+        "Animated scan line",
+        "Camera placeholder icon",
+        "Live indicator badge",
+        "Control buttons (Flash, Lens, Manual)"
+      ],
+      "resultStates": [
+        "Success: Green badge with participant info",
+        "Error: Red badge with warning icon",
+        "Contains: Name, ID, ticket type, check-in time, zone"
+      ]
+    }
+  ],
+  "designSystem": {
+    "colorPalette": {
+      "primary": {
+        "main": "#003d9b",
+        "container": "#0052cc",
+        "fixed": "#dae2ff",
+        "fixedDim": "#b2c5ff"
+      },
+      "secondary": {
+        "main": "#5e4db9",
+        "fixed": "#e5deff",
+        "fixedDim": "#c9bfff",
+        "container": "#9f8eff"
+      },
+      "tertiary": {
+        "main": "#7b2600",
+        "container": "#a33500",
+        "fixed": "#ffdbcf",
+        "fixedDim": "#ffb59b"
+      },
+      "error": "#ba1a1a",
+      "errorContainer": "#ffdad6",
+      "neutral": {
+        "background": "#f8f9fa",
+        "surface": "#f8f9fa",
+        "surfaceVariant": "#e1e3e4",
+        "outline": "#737685"
+      }
+    },
+    "typography": {
+      "headlines": "Manrope (400, 600, 700, 800 weights)",
+      "body": "Inter (400, 500, 600 weights)",
+      "labels": "Inter (uppercase, all caps with tracking)"
+    },
+    "borderRadius": {
+      "default": "0.25rem",
+      "lg": "0.5rem",
+      "xl": "0.75rem",
+      "full": "9999px"
+    },
+    "shadows": [
+      "Shadow ambient: 0 12px 32px -4px rgba(25,28,29,0.06)",
+      "Shadow on hover: Enhanced with scale effects",
+      "Shadow primary: shadow-lg shadow-primary/20"
+    ],
+    "iconLibrary": "Material Symbols Outlined"
+  },
+  "commonPatterns": {
+    "navigation": [
+      "Sticky top nav with backdrop blur",
+      "Sidebar admin navigation (fixed position)",
+      "Mobile hamburger menu",
+      "Breadcrumb navigation"
+    ],
+    "cards": [
+      "Hover elevation (translate-y)",
+      "Hover color transitions",
+      "Border-left accent stripes",
+      "Image with overlay on event cards"
+    ],
+    "forms": [
+      "Labeled inputs with small uppercase labels",
+      "Icon-prefixed input fields",
+      "Focus ring on inputs",
+      "Select dropdowns with chevron",
+      "Toggle switches for boolean fields",
+      "Textarea for longer content"
+    ],
+    "animations": [
+      "Smooth transitions (0.3s-0.5s)",
+      "Scale on active buttons",
+      "Opacity fading",
+      "Color transitions",
+      "Animated scan line (3s loop)"
+    ],
+    "dataDisplay": [
+      "Progress bars for capacity/attendance",
+      "Stats cards with trend indicators",
+      "Tables with hover rows",
+      "Badges for status",
+      "Charts and gauges"
+    ]
+  },
+  "conversionNotes": {
+    "recommender": "These static HTML pages should be converted to React components with:",
+    "suggestions": [
+      "Create reusable component library (Button, Card, Input, Table, etc.)",
+      "Use React hooks for state management (useState for modals, forms)",
+      "Implement routing with React Router for page navigation",
+      "Extract Tailwind classes into component-level styling",
+      "Create context/provider for authentication state",
+      "Use conditional rendering for different user states (logged in/out, admin/user)",
+      "Implement form validation and submission handlers",
+      "Add API integration points for data fetching",
+      "Create layout wrapper components for consistent navigation",
+      "Implement responsive design with Tailwind's mobile-first approach"
+    ]
+  }
+}

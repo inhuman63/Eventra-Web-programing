@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eventra | Register for Events in Minutes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#434654",
+                        "secondary": "#5e4db9",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary-fixed": "#001848",
+                        "secondary-fixed": "#e5deff",
+                        "primary-fixed": "#dae2ff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#341d8d",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "background": "#f8f9fa",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface": "#f8f9fa",
+                        "on-tertiary-fixed": "#380d00",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "outline": "#737685",
+                        "tertiary-container": "#a33500",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-container": "#9f8eff",
+                        "outline-variant": "#c3c6d6",
+                        "surface-container": "#edeeef",
+                        "on-primary-container": "#c4d2ff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "on-secondary-fixed": "#1a0063",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-background": "#191c1d",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#7b2600",
+                        "on-secondary-fixed-variant": "#4633a0",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed-dim": "#c9bfff",
+                        "primary-container": "#0052cc",
+                        "surface-tint": "#0c56d0",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "primary": "#003d9b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .premium-gradient {
+            background: linear-gradient(135deg, #003D9B 0%, #0052CC 100%);
+        }
+        body { font-family: 'Inter', sans-serif; color: #191c1d; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-blue-700 dark:text-blue-400">Eventra</div>
+<div class="hidden md:flex items-center gap-8 font-manrope headline-sm font-semibold tracking-tight">
+<a class="text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700 transition-colors" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 transition-colors" href="#">Events</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 transition-colors" href="#">Login</a>
+<a class="bg-primary hover:bg-primary-container text-white px-6 py-2 rounded-full transition-all active:scale-95 duration-150" href="#">Register</a>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors rounded-lg">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-surface py-24 lg:py-32">
+<div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+<div class="max-w-2xl">
+<span class="font-label label-md uppercase tracking-widest font-bold text-primary mb-6 block">The Future of Event Entry</span>
+<h1 class="font-headline text-5xl lg:text-7xl font-extrabold tracking-tight text-on-surface mb-8 leading-[1.1]">
+                        Register for Events <span class="text-primary italic">in Minutes</span>
+</h1>
+<p class="font-body body-md text-lg text-on-surface-variant mb-12 leading-relaxed">
+                        Discover events, reserve your seat, and use your QR code for fast check-in. Experience seamless entry with our curated management platform.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="premium-gradient text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all active:scale-95 flex items-center gap-2">
+                            Explore Events
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="bg-secondary-fixed text-on-secondary-fixed px-8 py-4 rounded-full font-semibold hover:bg-secondary-container transition-all active:scale-95">
+                            Get Started
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="bg-surface-container-low rounded-[2rem] p-4 aspect-[4/3] relative overflow-hidden shadow-2xl">
+<img alt="Event registration interface" class="w-full h-full object-cover rounded-[1.5rem]" data-alt="Modern high-tech conference hall with a large digital screen and people networking in a professional, bright blue lit environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW1Q8VHuQovXyFvwb2DsCBLcgsxYBXTLLRCgmBmMEYijOJkkpxrmlYJjQ-Yv_nTvKJBY2E6VSTVRywej0dUH5CVEEgugZWxHFcrDE1xmtH2vs0V-v1lIvNFZLc0rKlUpvo4_8fIpbO-J_JC56UNBkVQnavbC1xmOohPptsfxhTA3slavILi4N4EBrduJvLWx3-KGHaFEKDzX-W5VAgU4JgskPgmJCTU9WIghUbkysx-QhB6AUg4is-QEERYJLH94jDVBsRGLTXYHw"/>
+<div class="absolute bottom-8 left-8 bg-surface-container-lowest/90 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/20 max-w-xs">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="qr_code_2" style="font-variation-settings: 'FILL' 1;">qr_code_2</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Instant Ticket</p>
+<p class="text-sm font-bold">Tech Summit 2024</p>
+</div>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full w-2/3 bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Events (Bento Inspired Grid) -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<h2 class="font-headline headline-sm text-4xl font-bold mb-4">Featured Events</h2>
+<p class="font-body text-on-surface-variant max-w-md">Hand-picked premium experiences curated just for you.</p>
+</div>
+<a class="font-label label-md uppercase tracking-widest font-bold text-primary flex items-center gap-2 hover:gap-4 transition-all" href="#">
+                        View All Events <span class="material-symbols-outlined">trending_flat</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Event Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden hover:translate-y-[-8px] transition-all duration-300">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Dazzling concert stage with purple and blue spotlights and a silhouetted crowd in a high-end music festival setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL7RCXxlxbU5WMZnodYIav7-Iv69XspSBuo7q5Aooa_iseIfA_rjC14cbPGWvNG_UavYz3quQ6C7zaZyW30NtpQLZp-RSpL0ef8rlrDyH8jkZwP3Vq375RyzJU-HsJndaRz_tgVUWuY-YATkYhnecnz0iOvtlRb9Og_Ozz_cf7y3nxBzMZpRNIJ57mpvi4AuelsC1DcqmT_Sh6T5GtXdvFEiyhINz7peffAdTRzwFJQmXwoY8lpP6ssjYbeh0RU84RXIpgpIp6ESQ"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-primary">Music</div>
+</div>
+<div class="p-8">
+<div class="flex items-center gap-2 text-primary font-bold text-sm mb-2">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+                                Oct 24, 2024
+                            </div>
+<h3 class="text-xl font-bold mb-4">Midnight Symphony Festival</h3>
+<div class="flex items-center justify-between mt-auto pt-4">
+<span class="text-on-surface-variant font-medium">$89.00</span>
+<button class="text-primary font-bold flex items-center gap-1 hover:text-primary-container">
+                                    Book Now <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Event Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden hover:translate-y-[-8px] transition-all duration-300">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of a professional speaker on stage with a blurred audience in a modern wooden paneled auditorium" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF3IDfpmVQZ9cX0tyNtHWpQsLYZsnfiT4YeF5ia85MKK_41ys3FpKtbqoVtr4GhUOvVHnDRvQe7qhhu-KlgUIUkqlJbaMyDjnf_qn3TbJ4qR6DI-jllLZ11839uEPVwzivCD8vJLrLGSQ5454GnezYSGgiQUOJEz5XlEPwXxDmmtAn_UoROzsWpwktNxwSMD_yRSMNwMQPccydWa4jhCjnUy1SFev8rbsr87l1_NRlK_UpPPymSiyG3rFGw9WAb45mUHfIOVzXlfk"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-secondary">Tech</div>
+</div>
+<div class="p-8">
+<div class="flex items-center gap-2 text-primary font-bold text-sm mb-2">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+                                Nov 12, 2024
+                            </div>
+<h3 class="text-xl font-bold mb-4">Future of AI Summit</h3>
+<div class="flex items-center justify-between mt-auto pt-4">
+<span class="text-on-surface-variant font-medium">$149.00</span>
+<button class="text-primary font-bold flex items-center gap-1 hover:text-primary-container">
+                                    Book Now <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Event Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden hover:translate-y-[-8px] transition-all duration-300">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Curated art gallery with minimalist white walls and modern abstract paintings under soft warm directional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpgc4dVtqcYXfgeYjJH2wgazx8TnMNzTTmVcATYt18qrajxnpTfo0_W-i5RkcEEJ59f-2Lyv8LOh49-p4zEOiXyPdfjbvtrWCmCfVyuEqose1b54HtO_upU0zJLq-rDXkfNCjcBaEBHWQwCF544Xnm1e3IY_y_90IApSlA-RFuz-6p7JcXB1XZTH5eUtrWq8pAV6MCZdI0-EQ1p9cCSn2O9YDMTAVCYb_Jbx-TjXSWOVFqYJUg9umqih3YIQW3A0vu6aMcewfiTq4"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-tertiary">Art</div>
+</div>
+<div class="p-8">
+<div class="flex items-center gap-2 text-primary font-bold text-sm mb-2">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+                                Dec 05, 2024
+                            </div>
+<h3 class="text-xl font-bold mb-4">Metropolitan Art Expo</h3>
+<div class="flex items-center justify-between mt-auto pt-4">
+<span class="text-on-surface-variant font-medium">Free</span>
+<button class="text-primary font-bold flex items-center gap-1 hover:text-primary-container">
+                                    Book Now <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How it Works -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<h2 class="font-headline headline-sm text-4xl font-bold mb-20">Seamless in Three Steps</h2>
+<div class="grid md:grid-cols-3 gap-12 relative">
+<!-- Path Line (Desktop) -->
+<div class="hidden md:block absolute top-1/4 left-1/4 right-1/4 h-px border-t border-dashed border-outline-variant -z-0"></div>
+<div class="relative z-10">
+<div class="w-20 h-20 bg-surface-container-highest rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
+<span class="material-symbols-outlined text-3xl text-primary" data-icon="explore">explore</span>
+</div>
+<h4 class="text-xl font-bold mb-4">Browse</h4>
+<p class="text-on-surface-variant font-body">Find the perfect event from our curated global list of high-profile gatherings.</p>
+</div>
+<div class="relative z-10">
+<div class="w-20 h-20 bg-primary-fixed rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
+<span class="material-symbols-outlined text-3xl text-on-primary-fixed" data-icon="how_to_reg">how_to_reg</span>
+</div>
+<h4 class="text-xl font-bold mb-4">Register</h4>
+<p class="text-on-surface-variant font-body">Secure your spot instantly with our simplified, one-click registration process.</p>
+</div>
+<div class="relative z-10">
+<div class="w-20 h-20 bg-secondary-fixed rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
+<span class="material-symbols-outlined text-3xl text-on-secondary-fixed" data-icon="qr_code_scanner">qr_code_scanner</span>
+</div>
+<h4 class="text-xl font-bold mb-4">Scan</h4>
+<p class="text-on-surface-variant font-body">Walk in like a VIP. Show your digital QR code at the entrance for instant entry.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Grid -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="font-headline headline-sm text-4xl font-bold mb-4">Designed for Precision</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Every detail of the Eventra ecosystem is engineered to remove friction from your event experience.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Feature 1 -->
+<div class="p-8 bg-surface-container-lowest rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary mb-6 block text-4xl" data-icon="bolt">bolt</span>
+<h5 class="text-lg font-bold mb-3">Instant Confirmation</h5>
+<p class="text-sm text-on-surface-variant font-body leading-relaxed">No waiting in line. Your tickets are issued immediately upon successful registration.</p>
+</div>
+<!-- Feature 2 -->
+<div class="p-8 bg-surface-container-lowest rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary mb-6 block text-4xl" data-icon="shield_person">shield_person</span>
+<h5 class="text-lg font-bold mb-3">Secure Identity</h5>
+<p class="text-sm text-on-surface-variant font-body leading-relaxed">Your data is protected with enterprise-grade encryption and secure QR tokenization.</p>
+</div>
+<!-- Feature 3 -->
+<div class="p-8 bg-surface-container-lowest rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary mb-6 block text-4xl" data-icon="notifications_active">notifications_active</span>
+<h5 class="text-lg font-bold mb-3">Live Updates</h5>
+<p class="text-sm text-on-surface-variant font-body leading-relaxed">Stay informed with real-time schedule changes and speaker announcements.</p>
+</div>
+<!-- Feature 4 -->
+<div class="p-8 bg-surface-container-lowest rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary mb-6 block text-4xl" data-icon="account_balance_wallet">account_balance_wallet</span>
+<h5 class="text-lg font-bold mb-3">Digital Wallet</h5>
+<p class="text-sm text-on-surface-variant font-body leading-relaxed">Keep all your event history and upcoming passes in one centralized mobile wallet.</p>
+</div>
+<!-- Feature 5 -->
+<div class="p-8 bg-surface-container-lowest rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary mb-6 block text-4xl" data-icon="groups">groups</span>
+<h5 class="text-lg font-bold mb-3">Networking Hub</h5>
+<p class="text-sm text-on-surface-variant font-body leading-relaxed">Connect with other attendees and speakers before the main event starts.</p>
+</div>
+<!-- Feature 6 -->
+<div class="p-8 bg-surface-container-lowest rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary mb-6 block text-4xl" data-icon="analytics">analytics</span>
+<h5 class="text-lg font-bold mb-3">Smart Insights</h5>
+<p class="text-sm text-on-surface-variant font-body leading-relaxed">Personalized recommendations based on your professional interests and history.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="py-24 bg-surface">
+<div class="max-w-5xl mx-auto px-6">
+<div class="premium-gradient rounded-[2.5rem] p-12 lg:p-20 text-center text-white shadow-2xl relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<circle cx="10" cy="10" fill="white" r="50"></circle>
+<circle cx="90" cy="90" fill="white" r="40"></circle>
+</svg>
+</div>
+<h2 class="font-headline text-4xl lg:text-5xl font-extrabold mb-8 relative z-10">Ready for your next event?</h2>
+<p class="text-lg opacity-90 mb-12 max-w-2xl mx-auto relative z-10 font-body">Join over 50,000 curators and attendees who choose Eventra for high-fidelity event management.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-10">
+<input class="w-full sm:w-80 px-6 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder:text-white/60 focus:bg-white/20 focus:outline-none transition-all" placeholder="Enter your email" type="email"/>
+<button class="bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-on-primary-fixed transition-all active:scale-95">Subscribe Now</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface text-inverse-on-surface py-20">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+<div class="col-span-1 md:col-span-1">
+<div class="text-3xl font-black tracking-tighter text-white mb-6">Eventra</div>
+<p class="text-sm opacity-70 leading-relaxed font-body">Curation meets precision. The premier platform for high-stakes event management and attendance.</p>
+</div>
+<div>
+<h6 class="font-headline font-bold mb-6 text-white uppercase text-xs tracking-widest">Platform</h6>
+<ul class="space-y-4 text-sm opacity-70">
+<li><a class="hover:text-white hover:opacity-100 transition-all" href="#">Browse Events</a></li>
+<li><a class="hover:text-white hover:opacity-100 transition-all" href="#">Pricing Plans</a></li>
+<li><a class="hover:text-white hover:opacity-100 transition-all" href="#">Help Center</a></li>
+<li><a class="hover:text-white hover:opacity-100 transition-all" href="#">API Docs</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-headline font-bold mb-6 text-white uppercase text-xs tracking-widest">Company</h6>
+<ul class="space-y-4 text-sm opacity-70">
+<li><a class="hover:text-white hover:opacity-100 transition-all" href="#">About Us</a></li>
+<li><a class="hover:text-white hover:opacity-100 transition-all" href="#">Careers</a></li>
+<li><a class="hover:text-white hover:opacity-100 transition-all" href="#">Blog</a></li>
+<li><a class="hover:text-white hover:opacity-100 transition-all" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-headline font-bold mb-6 text-white uppercase text-xs tracking-widest">Legal</h6>
+<ul class="space-y-4 text-sm opacity-70">
+<li><a class="hover:text-white hover:opacity-100 transition-all" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-white hover:opacity-100 transition-all" href="#">Terms of Service</a></li>
+<li><a class="hover:text-white hover:opacity-100 transition-all" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 opacity-50 text-xs">
+<p>© 2024 Eventra Inc. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="hover:text-white transition-colors" href="#">Twitter</a>
+<a class="hover:text-white transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-white transition-colors" href="#">Instagram</a>
+</div>
+</div>
+</div>
+</footer>
+<script src="../shared-navigation.js"></script>
+</body></html>

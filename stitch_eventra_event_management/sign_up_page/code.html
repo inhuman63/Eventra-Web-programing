@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign Up | Eventra</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#434654",
+                        "secondary": "#5e4db9",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary-fixed": "#001848",
+                        "secondary-fixed": "#e5deff",
+                        "primary-fixed": "#dae2ff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#341d8d",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "background": "#f8f9fa",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface": "#f8f9fa",
+                        "on-tertiary-fixed": "#380d00",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "outline": "#737685",
+                        "tertiary-container": "#a33500",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-container": "#9f8eff",
+                        "outline-variant": "#c3c6d6",
+                        "surface-container": "#edeeef",
+                        "on-primary-container": "#c4d2ff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "on-secondary-fixed": "#1a0063",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-background": "#191c1d",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#7b2600",
+                        "on-secondary-fixed-variant": "#4633a0",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed-dim": "#c9bfff",
+                        "primary-container": "#0052cc",
+                        "surface-tint": "#0c56d0",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "primary": "#003d9b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .editorial-gradient {
+            background: linear-gradient(135deg, #003d9b 0%, #0052cc 100%);
+        }
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+        .input-focus-ring:focus {
+            box-shadow: inset 0 0 0 2px rgba(0, 61, 155, 0.1), 0 0 0 2px rgba(0, 61, 155, 0.4);
+            outline: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col">
+<!-- Global Header (TopNavBar Suppression logic applied - Simple branding for focused task) -->
+<header class="w-full px-6 py-8 flex justify-center items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="event_seat">event_seat</span>
+<span class="font-headline text-2xl font-black tracking-tighter text-primary">Eventra</span>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center px-4 pb-12">
+<div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_12px_32px_-4px_rgba(25,28,29,0.06)]">
+<!-- Left Side: Visual / Brand Content -->
+<div class="hidden lg:block relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/20 z-10"></div>
+<img alt="Grand conference hall" class="absolute inset-0 w-full h-full object-cover" data-alt="Modern minimalist auditorium with blue atmospheric lighting and architectural lines reflecting a prestigious academic curator aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBctiRg0A0eCrbbbo6-kOWKgluqKtF7lVnNuMC-7oaBnNhzM6a8mHgddQYlmYqyheYDKgvgZujhlcn4Rab6n8YISNJesURrG1I5zTndJIcZa6X6F3KOULkhDA2rWrE2Xo2jjxMEcR3WBjgyCHRjKoSa6jPSQHnKwNrQYC0nrYuq6bFfau4JyMPjqwtTm-oaw6_aNxjJjcxlK-r_9NmFO3REYkSb9NUy1z7WI1lZsc0GmWIyxWMiqrSD20QYBmB8eS9-Yk9_2Z-RFso"/>
+<div class="relative z-20 h-full p-12 flex flex-col justify-end text-white">
+<div class="bg-primary-container/30 backdrop-blur-md p-8 rounded-xl border-white/10 border">
+<p class="font-label text-xs uppercase tracking-widest font-bold mb-4 text-primary-fixed">The Academic Curator</p>
+<h2 class="font-headline text-4xl font-extrabold tracking-tight mb-4">Precision in Every Connection.</h2>
+<p class="text-primary-fixed/80 text-body-md leading-relaxed">Join a community of professional curators managing world-class events with sophisticated digital tools.</p>
+</div>
+</div>
+</div>
+<!-- Right Side: Sign Up Form -->
+<div class="p-8 md:p-16 flex flex-col justify-center">
+<div class="mb-10">
+<h1 class="font-headline text-3xl font-bold text-on-surface tracking-tight mb-2">Create your account</h1>
+<p class="text-on-surface-variant font-body">Begin your journey into high-stakes event management.</p>
+</div>
+<form class="space-y-6">
+<div class="space-y-1">
+<label class="font-label text-xs uppercase tracking-widest font-bold text-on-surface-variant px-1" for="name">Full Name</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-xl" data-icon="person">person</span>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-4 pl-12 pr-4 text-on-surface placeholder:text-outline/60 input-focus-ring transition-all" id="name" placeholder="Alexander Hamilton" type="text"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label text-xs uppercase tracking-widest font-bold text-on-surface-variant px-1" for="email">Email Address</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-xl" data-icon="alternate_email">alternate_email</span>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-4 pl-12 pr-4 text-on-surface placeholder:text-outline/60 input-focus-ring transition-all" id="email" placeholder="curator@eventra.io" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1">
+<label class="font-label text-xs uppercase tracking-widest font-bold text-on-surface-variant px-1" for="password">Password</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-xl" data-icon="lock">lock</span>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-4 pl-12 pr-4 text-on-surface placeholder:text-outline/60 input-focus-ring transition-all" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label text-xs uppercase tracking-widest font-bold text-on-surface-variant px-1" for="confirm_password">Confirm Password</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-xl" data-icon="lock_reset">lock_reset</span>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-4 pl-12 pr-4 text-on-surface placeholder:text-outline/60 input-focus-ring transition-all" id="confirm_password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<div class="pt-4">
+<button class="w-full editorial-gradient text-white font-headline font-bold py-4 px-8 rounded-full shadow-lg shadow-primary/20 hover:scale-[1.01] active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="submit">
+<span>Primary Sign Up</span>
+<span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+<div class="mt-8 flex flex-col items-center gap-4">
+<p class="text-on-surface-variant text-sm">
+                        Already have an account? 
+                        <a class="text-primary font-bold hover:underline underline-offset-4 decoration-2 decoration-primary/30 ml-1" href="#">Login</a>
+</p>
+<div class="flex items-center w-full gap-4 py-2">
+<div class="h-[1px] flex-grow bg-surface-container-high"></div>
+<span class="text-xs font-label uppercase tracking-widest text-outline">Social Access</span>
+<div class="h-[1px] flex-grow bg-surface-container-high"></div>
+</div>
+<div class="flex gap-4 w-full">
+<button class="flex-1 flex items-center justify-center gap-2 bg-surface-container-low hover:bg-surface-container-high py-3 rounded-lg transition-colors group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="google">google</span>
+<span class="text-xs font-bold font-label uppercase tracking-wider">Google</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 bg-surface-container-low hover:bg-surface-container-high py-3 rounded-lg transition-colors group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="apple">ios</span>
+<span class="text-xs font-bold font-label uppercase tracking-wider">Apple</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Simple Footer for transactional page -->
+<footer class="w-full py-8 px-6 text-center">
+<p class="text-outline text-xs font-label uppercase tracking-[0.2em]">© 2024 Eventra Ecosystem. All Rights Reserved.</p>
+</footer>
+<script src="../shared-navigation.js"></script>
+</body></html>

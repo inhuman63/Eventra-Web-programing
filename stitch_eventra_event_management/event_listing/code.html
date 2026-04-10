@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eventra | Explore Events</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#434654",
+                        "secondary": "#5e4db9",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary-fixed": "#001848",
+                        "secondary-fixed": "#e5deff",
+                        "primary-fixed": "#dae2ff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#341d8d",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "background": "#f8f9fa",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface": "#f8f9fa",
+                        "on-tertiary-fixed": "#380d00",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "outline": "#737685",
+                        "tertiary-container": "#a33500",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-container": "#9f8eff",
+                        "outline-variant": "#c3c6d6",
+                        "surface-container": "#edeeef",
+                        "on-primary-container": "#c4d2ff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "on-secondary-fixed": "#1a0063",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-background": "#191c1d",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#7b2600",
+                        "on-secondary-fixed-variant": "#4633a0",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed-dim": "#c9bfff",
+                        "primary-container": "#0052cc",
+                        "surface-tint": "#0c56d0",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "primary": "#003d9b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { backdrop-filter: blur(24px); }
+        .premium-gradient { background: linear-gradient(135deg, #003d9b 0%, #0052cc 100%); }
+        .shadow-ambient { box-shadow: 0 12px 32px -4px rgba(25, 28, 29, 0.06); }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-blue-700 dark:text-blue-400">
+                Eventra
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 transition-colors" href="#">Home</a>
+<a class="text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700" href="#">Events</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 transition-colors" href="#">Login</a>
+<a class="bg-primary text-white px-6 py-2 rounded-full font-bold premium-gradient hover:opacity-90 transition-all active:scale-95" href="#">Register</a>
+</div>
+<button class="md:hidden p-2 hover:bg-slate-50 rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-6 py-12">
+<!-- Header Section -->
+<header class="mb-16 space-y-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<span class="font-label text-xs uppercase tracking-widest font-bold text-primary">Discover Experience</span>
+<h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-on-surface leading-none">Explore Events</h1>
+</div>
+<!-- Search Bar -->
+<div class="w-full md:w-96">
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-lg">search</span>
+</div>
+<input class="w-full bg-surface-container-highest border-none rounded-xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-primary/40 transition-all text-body-md placeholder:text-outline-variant" placeholder="Search by name, venue or curator..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex flex-wrap gap-3 overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-6 py-2.5 rounded-full bg-primary text-on-primary text-sm font-semibold tracking-wide shadow-ambient">Upcoming</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-lowest text-on-surface-variant text-sm font-semibold hover:bg-surface-container-high transition-colors">Workshops</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-lowest text-on-surface-variant text-sm font-semibold hover:bg-surface-container-high transition-colors">Seminars</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-lowest text-on-surface-variant text-sm font-semibold hover:bg-surface-container-high transition-colors">Competitions</button>
+<div class="h-10 w-px bg-surface-container-highest mx-2"></div>
+<button class="p-2.5 rounded-full bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-lg block">tune</span>
+</button>
+</div>
+</header>
+<!-- Event Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-ambient transition-all hover:-translate-y-1">
+<div class="relative h-64 overflow-hidden">
+<img alt="Tech Summit" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Futuristic technology conference stage with neon blue lighting, large digital screens, and a silhouette of a speaker" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb7BV51cl_tC_nGmTQ4zJruLQk7U88N6w_TXAOdqo7c_ZSAfR-LWvwPz4coWsmPOrLpf2JW6k90q17pjFJVq45PVOW6S70pYYRGFE8-Hw0Kafz_USsRgyffSAayLtxaJGDS1pY0dyqq5meG_1OfB1XwDMQ_ZS7afW2LOt4PfR_12ntlz9pzHSIraJagkZe4mRHf7sCsy34VOGNDQWB6JZ8mneKyMU_2XkzObfgVjsBdLrPV2dHnLBL8nOSK1adcY2pLas-ZeqwS3o"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-lg">
+<span class="text-primary font-bold text-xs">8 SEATS LEFT</span>
+</div>
+<div class="absolute bottom-4 left-4 flex gap-2">
+<span class="bg-black/60 backdrop-blur text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Workshop</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Global AI Summit 2024</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-base">calendar_today</span>
+<span>Oct 24, 2024</span>
+<span class="mx-1">•</span>
+<span>09:00 AM</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">
+                        Join world-class engineers and researchers as they dissect the future of generative models and neural architecture.
+                    </p>
+<div class="flex items-center gap-2 text-outline text-sm">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>Innovation Hub, San Francisco</span>
+</div>
+<div class="flex gap-3 pt-2">
+<button class="flex-1 premium-gradient text-white font-bold py-3 rounded-full text-sm hover:opacity-90 active:scale-95 transition-all">Register</button>
+<button class="px-4 py-3 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined block">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-ambient transition-all hover:-translate-y-1">
+<div class="relative h-64 overflow-hidden">
+<img alt="Design Meetup" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Elegant art gallery interior with minimalist design, white walls, and professional lighting on modern sculptures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQFwcOHTz3u2PAY1jfY_Xw-pc0H893-GA-s-Yg_Afkb9RTbo8eo-BA_pXmjr-ia5yzGoLB8jRg3AbtN9iP_ZHw-FS6qs6VBtIAyqtx1q2FLw8Ze9iMdyC7ZdRqEJaY4PWVVca1W-BYjT1-vH-b9YLTX4eUSRytx4ba88dCB4oxR5ptDVxSdlvcDpcuQ-ogj17c48v0_5NQJ4HstRe0X1s0YsmD6BQg68eEYYqxH0np5rNzWDrUOUaaPBq5_hS1D3h4rhjnYBAs0RY"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-lg">
+<span class="text-primary font-bold text-xs">24 SEATS LEFT</span>
+</div>
+<div class="absolute bottom-4 left-4 flex gap-2">
+<span class="bg-black/60 backdrop-blur text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Seminar</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">The Minimalist's Creed</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-base">calendar_today</span>
+<span>Nov 02, 2024</span>
+<span class="mx-1">•</span>
+<span>02:30 PM</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">
+                        An evening dedicated to the philosophy of 'Less but Better' in product design and architecture.
+                    </p>
+<div class="flex items-center gap-2 text-outline text-sm">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>Vellum Gallery, New York</span>
+</div>
+<div class="flex gap-3 pt-2">
+<button class="flex-1 premium-gradient text-white font-bold py-3 rounded-full text-sm hover:opacity-90 active:scale-95 transition-all">Register</button>
+<button class="px-4 py-3 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined block">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-ambient transition-all hover:-translate-y-1">
+<div class="relative h-64 overflow-hidden">
+<img alt="Hackathon" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Dynamic group of diverse young people working intensely on laptops in a high-tech modern co-working space with large windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6CGxAgeFCoMcA9eRMk0c7X5QNf595aIs5ERBcoteQ8nruwUmBqDOY6FvcOeBxgT0U5yuCViMuLMr7CBUthQtqlBh0rLIAiZOjqpMLPprB7n8VqCkOcS5awHy_VwwgZK92vZZGaV6ic8WW-NZNJ5-SyfcQtEZ0IOXslZD3g-eFHHLXm66bWkPiTTUEfirjxZZ1x2yb3PsqaXhKZ1k--_Q0Q0m2cTFfUNNqBIlJJ_Z_lv65VyB-yzVT-z0U_5GVY26VApo43ioTJGg"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-lg">
+<span class="text-error font-bold text-xs uppercase">Sold Out</span>
+</div>
+<div class="absolute bottom-4 left-4 flex gap-2">
+<span class="bg-black/60 backdrop-blur text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Competition</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Build-A-Thon 2024</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-base">calendar_today</span>
+<span>Oct 28, 2024</span>
+<span class="mx-1">•</span>
+<span>08:00 AM</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">
+                        48 hours of non-stop building. Turn your wildest ideas into functional prototypes.
+                    </p>
+<div class="flex items-center gap-2 text-outline text-sm">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>Terminal One, Berlin</span>
+</div>
+<div class="flex gap-3 pt-2">
+<button class="flex-1 bg-surface-container-highest text-on-surface-variant font-bold py-3 rounded-full text-sm cursor-not-allowed">Waitlist Only</button>
+<button class="px-4 py-3 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined block">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-ambient transition-all hover:-translate-y-1">
+<div class="relative h-64 overflow-hidden">
+<img alt="Marketing Seminar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Professional rooftop networking event at sunset with city skyline in the background and warm golden lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtWPYsQ34lH93Eg9EL2B2d0j23YYygqXns05oJWWawAdBfG55yU24-Oq5RMowdbFMNRKHSNY-XerTXrdjzQkNNe8MZk34g0MTCWS4fzxdeyyTlo7pVEBDMFzn4UILPErbXzGED3BD3oDncRKzJ-DDn21eWhc_N3w1L9MQthASETqK9j8PcKXTBbZfX2ETJbf1xVLXKYi3kD0OeoVoL4oFyB8OCEZ66lfei4WMin4W-NohIBzoJ-duDtC8xu-CLxF-J7W0hdcrhTXY"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-lg">
+<span class="text-primary font-bold text-xs">42 SEATS LEFT</span>
+</div>
+<div class="absolute bottom-4 left-4 flex gap-2">
+<span class="bg-black/60 backdrop-blur text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Seminar</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Growth &amp; Scale Summit</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-base">calendar_today</span>
+<span>Dec 05, 2024</span>
+<span class="mx-1">•</span>
+<span>10:00 AM</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">
+                        Scaling a startup from 0 to 1 requires more than just code. Learn the psychology of growth.
+                    </p>
+<div class="flex items-center gap-2 text-outline text-sm">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>Skylight Ballroom, London</span>
+</div>
+<div class="flex gap-3 pt-2">
+<button class="flex-1 premium-gradient text-white font-bold py-3 rounded-full text-sm hover:opacity-90 active:scale-95 transition-all">Register</button>
+<button class="px-4 py-3 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined block">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-ambient transition-all hover:-translate-y-1">
+<div class="relative h-64 overflow-hidden">
+<img alt="Photography Workshop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Person holding a professional mirrorless camera in a dense autumn forest with soft sunlight filtered through orange leaves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDak5IIRZYLkgukOE-_rkBNLVx2WnQDNJIpA1lsMiM_M_fK2LHf0rCOG1o3qi15WlBZB1UeQEv1egEHcZjWvazmsJEsNfUzlTsRLPdiMvEt08bK-2l8MswnH0OFf2e4eGop58aYQjsCTUCTSS7pj9B9QuT990szlvnfyZ_j_Nk73bwL7A7pOg3EhFn-ePfT6HvJnE9MS7DH06piqUddYM90BpFWWbl8Nbhdfu9mQDqxvxgOqRed1_X27oqIh-E8XtvqTT0LRtLMz_M"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-lg">
+<span class="text-primary font-bold text-xs">15 SEATS LEFT</span>
+</div>
+<div class="absolute bottom-4 left-4 flex gap-2">
+<span class="bg-black/60 backdrop-blur text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Workshop</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Visual Storytelling Masterclass</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-base">calendar_today</span>
+<span>Nov 15, 2024</span>
+<span class="mx-1">•</span>
+<span>11:00 AM</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">
+                        Master the art of the frame. A hands-on workshop on street and documentary photography.
+                    </p>
+<div class="flex items-center gap-2 text-outline text-sm">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>Studio 42, Tokyo</span>
+</div>
+<div class="flex gap-3 pt-2">
+<button class="flex-1 premium-gradient text-white font-bold py-3 rounded-full text-sm hover:opacity-90 active:scale-95 transition-all">Register</button>
+<button class="px-4 py-3 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined block">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-ambient transition-all hover:-translate-y-1">
+<div class="relative h-64 overflow-hidden">
+<img alt="Sustainability Talk" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Lush vertical garden on a modern architectural building facade with clean white walls and blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHM4Ch0pkozPoIqE5FxDT6EVhFp5kdyxYG75VgfvdE_NRV3t0L1oc9ey8a4PA_bf7fRikGbbqxga1P1yrUky_cqzWwhzD7QCvjG4fCXvMnrrUMqx4EgMHsyQfViOv1BzkW6JYUmh8Wq8D64A5ON4w0SDX3Cy0tMLmI1cUVjHjmYjqzFuC67O7iNPibBiHb3gtcv9FOxluBlpw1MNSPVoiMQ4ot5vUAD56DJikVEI-ZmmWHQydKHzSVCZiJ_YIgAdsiOfskwkxO_iY"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-lg">
+<span class="text-primary font-bold text-xs">5 SEATS LEFT</span>
+</div>
+<div class="absolute bottom-4 left-4 flex gap-2">
+<span class="bg-black/60 backdrop-blur text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Seminar</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Green Architecture 2025</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-base">calendar_today</span>
+<span>Jan 12, 2025</span>
+<span class="mx-1">•</span>
+<span>04:00 PM</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">
+                        Exploring the intersection of luxury living and zero-emission building materials.
+                    </p>
+<div class="flex items-center gap-2 text-outline text-sm">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>EcoPavilion, Copenhagen</span>
+</div>
+<div class="flex gap-3 pt-2">
+<button class="flex-1 premium-gradient text-white font-bold py-3 rounded-full text-sm hover:opacity-90 active:scale-95 transition-all">Register</button>
+<button class="px-4 py-3 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined block">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Pagination / Load More -->
+<div class="mt-20 flex flex-col items-center gap-6">
+<button class="px-12 py-4 bg-surface-container-lowest text-on-surface font-bold rounded-xl shadow-ambient hover:bg-surface-container-high transition-all">
+                Load More Events
+            </button>
+<p class="text-outline text-sm font-label uppercase tracking-widest">Displaying 6 of 142 total events</p>
+</div>
+</main>
+<!-- Footer Space -->
+<footer class="bg-surface-container-low mt-20 py-20 border-t border-outline-variant/10">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+<div class="space-y-4 text-center md:text-left">
+<div class="text-2xl font-black tracking-tighter text-blue-700">Eventra</div>
+<p class="text-on-surface-variant text-sm max-w-xs">Curating the world's most prestigious academic and professional experiences.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-outline hover:text-primary transition-colors font-semibold text-sm" href="#">Privacy</a>
+<a class="text-outline hover:text-primary transition-colors font-semibold text-sm" href="#">Terms</a>
+<a class="text-outline hover:text-primary transition-colors font-semibold text-sm" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<button class="p-3 rounded-full bg-white shadow-sm text-on-surface hover:text-primary transition-all">
+<span class="material-symbols-outlined">public</span>
+</button>
+<button class="p-3 rounded-full bg-white shadow-sm text-on-surface hover:text-primary transition-all">
+<span class="material-symbols-outlined">alternate_email</span>
+</button>
+</div>
+</div>
+</footer>
+<script src="../shared-navigation.js"></script>
+</body></html>

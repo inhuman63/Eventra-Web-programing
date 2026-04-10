@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eventra - Registration Successful</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#434654",
+                    "secondary": "#5e4db9",
+                    "surface-variant": "#e1e3e4",
+                    "on-primary-fixed": "#001848",
+                    "secondary-fixed": "#e5deff",
+                    "primary-fixed": "#dae2ff",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#341d8d",
+                    "surface-container-low": "#f3f4f5",
+                    "surface-container-high": "#e7e8e9",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "background": "#f8f9fa",
+                    "surface-bright": "#f8f9fa",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface": "#f8f9fa",
+                    "on-tertiary-fixed": "#380d00",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "outline": "#737685",
+                    "tertiary-container": "#a33500",
+                    "inverse-on-surface": "#f0f1f2",
+                    "secondary-container": "#9f8eff",
+                    "outline-variant": "#c3c6d6",
+                    "surface-container": "#edeeef",
+                    "on-primary-container": "#c4d2ff",
+                    "on-tertiary-container": "#ffc6b2",
+                    "on-secondary-fixed": "#1a0063",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#b2c5ff",
+                    "tertiary-fixed": "#ffdbcf",
+                    "on-background": "#191c1d",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#191c1d",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#d9dadb",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#7b2600",
+                    "on-secondary-fixed-variant": "#4633a0",
+                    "inverse-surface": "#2e3132",
+                    "secondary-fixed-dim": "#c9bfff",
+                    "primary-container": "#0052cc",
+                    "surface-tint": "#0c56d0",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "primary": "#003d9b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .premium-gradient {
+            background: linear-gradient(135deg, #003d9b 0%, #0052cc 100%);
+        }
+        .glass-overlay {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+        .ticket-cutout {
+            position: relative;
+        }
+        .ticket-cutout::before, .ticket-cutout::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: #f8f9fa;
+            border-radius: 50%;
+            top: 68%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        .ticket-cutout::before { left: -12px; }
+        .ticket-cutout::after { right: -12px; }
+        
+        .dash-line {
+            background-image: linear-gradient(to right, #c3c6d6 50%, rgba(255,255,255,0) 0%);
+            background-position: bottom;
+            background-size: 10px 1px;
+            background-repeat: repeat-x;
+            height: 1px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background antialiased min-h-screen">
+<!-- TopNavBar (Shared Component) - Note: Suppressed for focused transactional flow as per "Shell Visibility & Relevance" rule, but Eventra identity kept in branding. -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-white/80 backdrop-blur-xl">
+<div class="font-headline text-2xl font-black tracking-tighter text-blue-700">Eventra</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</header>
+<main class="flex flex-col items-center justify-center pt-24 pb-12 px-4">
+<!-- Success Animation/Icon Cluster -->
+<div class="mb-8 text-center">
+<div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-surface-container-lowest shadow-sm mb-6">
+<div class="w-16 h-16 rounded-full premium-gradient flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-4xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<h1 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tight text-on-surface mb-2">Registration Successful!</h1>
+<p class="text-on-surface-variant body-md max-w-md mx-auto">Your place has been reserved for the event. We've sent a confirmation email with all details to your inbox.</p>
+</div>
+<!-- The Ticket Card (The "Academic Curator" Card Style) -->
+<div class="relative w-full max-w-md ticket-cutout">
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0_12px_32px_-4px_rgba(25,28,29,0.06)] flex flex-col">
+<!-- Ticket Top Section -->
+<div class="p-8 pb-10">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="font-label text-[10px] uppercase tracking-widest font-bold text-primary mb-1 block">Event Confirmation</span>
+<h2 class="font-headline text-2xl font-bold text-on-surface leading-tight">Global Innovation Summit 2024</h2>
+</div>
+<div class="w-12 h-12 bg-surface-container-low rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-y-6">
+<div class="col-span-2">
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant block mb-1">Participant Name</span>
+<p class="font-semibold text-on-surface">Alexandrine Montgomery</p>
+</div>
+<div>
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant block mb-1">Registration ID</span>
+<p class="font-semibold text-on-surface">EVT-9920-81X</p>
+</div>
+<div>
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant block mb-1">Pass Type</span>
+<p class="font-semibold text-primary">VIP All-Access</p>
+</div>
+<div>
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant block mb-1">Date &amp; Time</span>
+<p class="text-on-surface body-md">Oct 24, 2024 • 09:00 AM</p>
+</div>
+<div>
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant block mb-1">Venue</span>
+<p class="text-on-surface body-md">Metropolitan Arts Center</p>
+</div>
+</div>
+</div>
+<!-- Perforation Line -->
+<div class="px-8 relative">
+<div class="dash-line opacity-30"></div>
+</div>
+<!-- QR Section -->
+<div class="p-8 pt-10 text-center bg-surface-container-low/30">
+<!-- QR Code Container as a "Physical Object" -->
+<div class="inline-block p-6 bg-surface-container-lowest rounded-2xl shadow-sm mb-6">
+<img alt="QR Code" class="w-48 h-48" data-alt="crisp black and white square QR code on a clean white background with minimal margin for event check-in scanning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPPIDxo_WNOL6qOGwLNG3In305jhU3sbFOnrKuYVo5qVbedYFZhrofc69zotNv1C4jnTB16Sd6fdLIRmpRQRjt8GSMVMwM0pgIwtagQpqQYc4lrH4GEia-irl5kM1mevDPZ2UD4QirZCRzFiB-0eu1yQZCGSQj-tZJrCkvXvMpq56t-Epoyhok23ZIPjIHjiTDxD1y84e3ZBCfect6wZI0GaopDJCIFCZ6nCE_jdXvAslwhDEeedOJCVwoXTEoerzjV8y5qpVYKaU"/>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">info</span>
+<span class="font-label text-[11px] uppercase tracking-wider font-bold">Important Note</span>
+</div>
+<p class="body-md text-on-surface-variant italic">Scan at the event for check-in</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="mt-10 flex flex-col sm:flex-row gap-4 w-full max-w-md">
+<button class="flex-1 flex items-center justify-center gap-3 premium-gradient text-white py-4 px-6 rounded-full font-semibold hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">download</span>
+                Download Ticket
+            </button>
+<button class="flex-1 flex items-center justify-center gap-3 bg-surface-container-highest text-on-surface py-4 px-6 rounded-full font-semibold hover:bg-surface-variant transition-all active:scale-95">
+<span class="material-symbols-outlined">print</span>
+                Print
+            </button>
+</div>
+<!-- Secondary Information / Help -->
+<div class="mt-12 text-center">
+<p class="text-on-surface-variant body-md">Need assistance or have questions?</p>
+<a class="text-primary font-semibold hover:underline decoration-2 underline-offset-4" href="#">Contact Support Team</a>
+</div>
+</main>
+<!-- Background Decoration (Asymmetric Editorial Element) -->
+<div class="fixed top-0 right-0 -z-10 opacity-10 pointer-events-none">
+<div class="w-[600px] h-[600px] rounded-full premium-gradient blur-[120px] translate-x-1/2 -translate-y-1/2"></div>
+</div>
+<div class="fixed bottom-0 left-0 -z-10 opacity-5 pointer-events-none">
+<div class="w-[400px] h-[400px] rounded-full bg-secondary blur-[100px] -translate-x-1/2 translate-y-1/2"></div>
+</div>
+<script src="../shared-navigation.js"></script>
+</body></html>

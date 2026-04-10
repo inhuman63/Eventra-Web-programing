@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eventra - Global AI Summit 2024</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#434654",
+                        "secondary": "#5e4db9",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary-fixed": "#001848",
+                        "secondary-fixed": "#e5deff",
+                        "primary-fixed": "#dae2ff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#341d8d",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "background": "#f8f9fa",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface": "#f8f9fa",
+                        "on-tertiary-fixed": "#380d00",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "outline": "#737685",
+                        "tertiary-container": "#a33500",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-container": "#9f8eff",
+                        "outline-variant": "#c3c6d6",
+                        "surface-container": "#edeeef",
+                        "on-primary-container": "#c4d2ff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "on-secondary-fixed": "#1a0063",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-background": "#191c1d",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#7b2600",
+                        "on-secondary-fixed-variant": "#4633a0",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed-dim": "#c9bfff",
+                        "primary-container": "#0052cc",
+                        "surface-tint": "#0c56d0",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "primary": "#003d9b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-gradient {
+            background: linear-gradient(135deg, #003D9B 0%, #0052CC 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+        .hero-mask {
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface">
+<!-- Top Navigation (Content & Identity from JSON) -->
+<nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<span class="text-2xl font-black tracking-tighter text-blue-700 dark:text-blue-400 font-headline">Eventra</span>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 transition-colors font-headline headline-sm" href="#">Home</a>
+<a class="text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700 transition-colors font-headline headline-sm" href="#">Events</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 transition-colors font-headline headline-sm" href="#">Login</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 transition-colors font-headline headline-sm" href="#">Register</a>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined">menu</span>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto pb-24">
+<!-- Hero Section -->
+<section class="relative h-[614px] w-full overflow-hidden mb-12">
+<div class="absolute inset-0 hero-mask">
+<img alt="Event Banner" class="w-full h-full object-cover" data-alt="cinematic wide shot of a modern technology summit conference hall with vibrant blue and purple stage lighting and a large screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2GsKgtYMferlRqWTE4dw3YPQ7f8btvmnf543LSqnS8BH2G9pjnpUcwXhxu5IbbbAWGX8NlWWK1E0TfTxjCLfMgr2T1lroqJ4iX0-HdjiV46Dx4U2PeIn34QyqWJMtw67LLi9C9K5hAVJn2TwE94nTTCpEY5Zs2P2sKB9QLi8uYts1XOxWgEFlIa3BpoYoomfpue-q22Mk9xIAcI8oJLjeDuYnI21EV3DhgKw_qnBYDS3ncD9KRi5rXgy5_OX5y-yZ768VdwdsRic"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 md:p-12 w-full">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label text-[0.75rem] uppercase tracking-widest font-bold mb-4">
+                    Technology &amp; Innovation
+                </div>
+<h1 class="font-headline font-extrabold text-5xl md:text-7xl tracking-tight text-on-surface mb-6 max-w-4xl">
+                    Global AI &amp; Machine Learning Summit 2024
+                </h1>
+<div class="flex items-center gap-4">
+<img alt="Organizer" class="w-12 h-12 rounded-full ring-2 ring-white" data-alt="professional headshot of a middle-aged man with glasses smiling, neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGLGAPe9OdQIdOGLiPn_c4bDsdGWkznjHmgbEU_Bgo5-G3EcOh4XGGgscKKtfO2VIn8YiyMLQRrp5w-OvQ60gTMc9vNSxqzXF7XrMevf42Db1hDQTnnrU4q1-oz0K9coprWeXdSKV-_ms_-wkNla8irlq2tTUZKM05Dh4Iipw6KZJuQVR_EbC8eTvvR5g5NJazHfZUZ2FGFkfxVLMtzwwqIT3vdb8C_nab1ar1iR7oxMGYE-g0JG8Jx5HRjkcVgU-5WtzXdx22CBY"/>
+<div>
+<p class="font-label text-on-surface-variant text-[0.75rem] uppercase tracking-widest font-bold">Organized by</p>
+<p class="font-headline font-semibold text-on-surface">Nexus Research Labs</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Page Content: Asymmetric Layout -->
+<div class="px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Column: Primary Information -->
+<div class="lg:col-span-8 space-y-16">
+<!-- Description -->
+<article>
+<h2 class="font-headline headline-sm font-semibold mb-6 text-primary">About the Event</h2>
+<div class="space-y-4 text-on-surface-variant text-lg leading-relaxed font-body max-w-3xl">
+<p>The Global AI Summit 2024 is the premier gathering for researchers, engineers, and visionary leaders shaping the future of artificial intelligence. This year, we delve deep into the convergence of Large Language Models, ethical AI governance, and autonomous systems.</p>
+<p>Join over 2,000 delegates for a weekend of groundbreaking keynotes, hands-on workshops, and networking sessions designed to push the boundaries of what's possible in the digital age.</p>
+</div>
+</article>
+<!-- Agenda (Bento Style) -->
+<section>
+<h2 class="font-headline headline-sm font-semibold mb-8 text-primary">Conference Agenda</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-6 bg-surface-container-low rounded-xl border-l-4 border-primary">
+<span class="font-label text-primary font-bold text-[0.75rem]">09:00 AM - 10:30 AM</span>
+<h3 class="font-headline font-bold text-xl mt-1">Opening Keynote: The AGI Horizon</h3>
+<p class="text-on-surface-variant text-sm mt-2">Dr. Elena Rostova, Lead Scientist at DeepMind</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl">
+<span class="font-label text-on-surface-variant font-bold text-[0.75rem]">11:00 AM - 12:30 PM</span>
+<h3 class="font-headline font-bold text-xl mt-1">Breakout: Neural Architecture</h3>
+<p class="text-on-surface-variant text-sm mt-2">Interactive workshop in Hall B</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl">
+<span class="font-label text-on-surface-variant font-bold text-[0.75rem]">01:30 PM - 03:00 PM</span>
+<h3 class="font-headline font-bold text-xl mt-1">Ethical Frameworks Panel</h3>
+<p class="text-on-surface-variant text-sm mt-2">Policy makers and tech leaders debate</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl">
+<span class="font-label text-on-surface-variant font-bold text-[0.75rem]">04:00 PM - 06:00 PM</span>
+<h3 class="font-headline font-bold text-xl mt-1">Networking &amp; Product Showcase</h3>
+<p class="text-on-surface-variant text-sm mt-2">Main Exhibition Pavilion</p>
+</div>
+</div>
+</section>
+<!-- Map -->
+<section>
+<h2 class="font-headline headline-sm font-semibold mb-6 text-primary">Venue Location</h2>
+<div class="w-full h-80 bg-surface-container-highest rounded-xl overflow-hidden relative">
+<img alt="Map" class="w-full h-full object-cover opacity-80" data-alt="abstract stylized topographical map with dark navy and glowing blue accents showing urban city grid" data-location="San Francisco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJw3T3ZCt7hPhnjcboCnc80gqEhyfDkhzRtU4nProTDfKyjqOxIGkHB-XeFy0DK13Vvy7HfxiD0pHn9yj4S-5naXJ2OaouOnftr0qa1U-KvZZkrVhLpkNdNtJexLv-XEqq9qlRxUYDW4zyIJwFv63pgSFOT0_wuJAZvcxiRLxYSxuo3pcol0PNpiT7iL_To4C4HDU0vLtFudqHXTbjMg8fSulfvwqfXGIXM2_f0Ottp4sBWIsbo3cPOZ81CnERDFHEBg8kRAJmbBQ"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="p-4 bg-white rounded-full shadow-2xl flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div class="pr-4">
+<p class="font-headline font-bold text-sm">Metropolitan Tech Center</p>
+<p class="text-xs text-on-surface-variant">San Francisco, CA</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Contextual Event Card -->
+<aside class="lg:col-span-4 sticky top-28">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden p-8 space-y-8">
+<!-- Event Details List -->
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="p-3 bg-surface-container-low rounded-lg text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<div>
+<p class="font-label text-[0.7rem] uppercase tracking-widest text-on-surface-variant font-bold">Date</p>
+<p class="font-headline font-bold text-lg">October 14-16, 2024</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="p-3 bg-surface-container-low rounded-lg text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<p class="font-label text-[0.7rem] uppercase tracking-widest text-on-surface-variant font-bold">Time</p>
+<p class="font-headline font-bold text-lg">09:00 AM - 06:00 PM</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="p-3 bg-surface-container-low rounded-lg text-primary">
+<span class="material-symbols-outlined">map</span>
+</div>
+<div>
+<p class="font-label text-[0.7rem] uppercase tracking-widest text-on-surface-variant font-bold">Venue</p>
+<p class="font-headline font-bold text-lg">Hall A, Metropolitan Center</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="p-3 bg-surface-container-low rounded-lg text-primary">
+<span class="material-symbols-outlined">event_seat</span>
+</div>
+<div>
+<p class="font-label text-[0.7rem] uppercase tracking-widest text-on-surface-variant font-bold">Availability</p>
+<div class="flex items-center gap-2">
+<div class="w-24 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="bg-primary h-full w-3/4"></div>
+</div>
+<p class="font-headline font-bold text-sm">45/500 left</p>
+</div>
+</div>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="pt-6 border-t border-surface-container-high space-y-4">
+<!-- State: REGISTERED (High Priority Focus) -->
+<div class="p-6 bg-surface-container-low rounded-xl flex flex-col items-center text-center space-y-4">
+<div class="flex items-center gap-2 text-success-green font-bold text-sm px-4 py-1.5 bg-green-50 rounded-full text-green-700">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Registered
+                            </div>
+<p class="text-xs text-on-surface-variant">You have successfully secured a seat for this event.</p>
+<!-- QR Preview Box (The Physical Object) -->
+<div class="p-4 bg-surface-container-lowest rounded-xl shadow-lg border border-surface-container-high group hover:scale-[1.02] transition-transform cursor-pointer">
+<div class="w-32 h-32 bg-slate-100 rounded-lg mb-3 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-slate-300">qr_code_2</span>
+</div>
+<button class="text-primary font-headline font-bold text-sm flex items-center gap-2">
+                                    View My QR
+                                    <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Secondary Action -->
+<button class="w-full py-4 rounded-full editorial-gradient text-white font-headline font-bold text-lg shadow-xl hover:opacity-90 transition-opacity">
+                            Add to Calendar
+                        </button>
+</div>
+</div>
+<!-- Invite Friends Widget -->
+<div class="mt-6 p-6 bg-primary-fixed rounded-xl flex items-center justify-between">
+<div>
+<p class="font-headline font-bold text-on-primary-fixed">Invite your team</p>
+<p class="text-xs text-on-primary-fixed-variant">Get a group discount</p>
+</div>
+<span class="material-symbols-outlined text-on-primary-fixed">share</span>
+</div>
+</aside>
+</div>
+</main>
+<!-- Navigation Shell Support (Mobile only) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-xl border-t border-surface-container-high px-8 py-4 flex justify-between items-center z-50">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="material-symbols-outlined text-on-surface-variant">explore</span>
+<span class="material-symbols-outlined text-on-surface-variant">calendar_month</span>
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<script src="../shared-navigation.js"></script>
+</body></html>
