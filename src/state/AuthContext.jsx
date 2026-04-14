@@ -91,6 +91,10 @@ export function AuthProvider({ children }) {
 
         const { data, error } = await supabase.auth.signInWithPassword({ email, password });
         const signedInRole = data.user?.user_metadata?.role || "user";
+        if (!error && data.user) {
+          setUser(data.user);
+          setRole(signedInRole);
+        }
         return { error, role: signedInRole };
       },
       async signup({ fullName, email, password }) {
