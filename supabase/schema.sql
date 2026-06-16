@@ -33,7 +33,9 @@ create table if not exists public.registrations (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references auth.users(id) on delete cascade,
   event_id uuid not null references public.events(id) on delete cascade,
+  participant_name text,
   ticket_code text not null unique default 'EVT-' || upper(substr(replace(gen_random_uuid()::text, '-', ''), 1, 8)),
+  ticket_type text not null default 'standard' check (ticket_type in ('standard', 'vip', 'early_bird')),
   attendance_status text not null default 'pending' check (attendance_status in ('pending', 'checked_in')),
   checked_in_at timestamptz,
   created_at timestamptz not null default now(),
@@ -113,3 +115,63 @@ drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
 after insert on auth.users
 for each row execute function public.handle_new_user_profile();
+
+-- Active Scanners & Scan History Table
+create table if not exists public.scan_logs (
+  id uuid primary key default gen_random_uuid(),
+  scanner_id uuid references auth.users(id) on delete set null,
+  device_info text,
+  ticket_code text,
+  status text not null check (status in ('success', 'invalid_ticket', 'already_checked_in', 'error')),
+  processing_time_ms int default 500,
+  scanned_at timestamptz not null default now()
+);
+
+alter table public.scan_logs enable row level security;
+drop policy if exists "scan_logs_admin_all" on public.scan_logs;
+create policy "scan_logs_admin_all" on public.scan_logs for all using (
+  exists(select 1 from public.profiles p where p.id = auth.uid() and p.role = 'admin')
+) with check (
+  exists(select 1 from public.profiles p where p.id = auth.uid() and p.role = 'admin')
+);
+
+-- Indexes for performance
+create index if not exists idx_registrations_event_id on public.registrations(event_id);
+create index if not exists idx_registrations_ticket_type on public.registrations(ticket_type);
+create index if not exists idx_attendance_checked_in_at on public.attendance(checked_in_at);
+create index if not exists idx_scan_logs_scanned_at on public.scan_logs(scanned_at);
+
+-- Views for Analytics
+create or replace view public.view_event_peak_performance as
+select 
+  e.id as event_id,
+  e.title,
+  e.venue,
+  e.capacity,
+  count(r.id) as registrations_count,
+  case 
+    when e.capacity > 0 then (count(r.id)::float / e.capacity) * 100
+    else 0
+  end as capacity_percentage
+from public.events e
+left join public.registrations r on e.id = r.event_id
+group by e.id, e.title, e.venue, e.capacity;
+
+create or replace view public.view_hourly_check_ins as
+select 
+  event_id,
+  to_char(checked_in_at, 'HH24:00') as hourly_interval,
+  count(*) as check_ins_count
+from public.attendance
+where checked_in_at is not null
+group by event_id, to_char(checked_in_at, 'HH24:00');
+
+create or replace view public.view_daily_attendance_flow as
+select 
+  to_char(checked_in_at, 'Dy') as day_of_week,
+  extract(isodow from checked_in_at) as day_num,
+  count(*) as check_ins_count
+from public.attendance
+where checked_in_at is not null
+  and checked_in_at >= now() - interval '7 days'
+group by to_char(checked_in_at, 'Dy'), extract(isodow from checked_in_at);

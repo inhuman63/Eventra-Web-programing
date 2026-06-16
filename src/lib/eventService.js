@@ -318,9 +318,30 @@ export async function registerForEvent(eventId, user) {
     throw new Error("This event is full.");
   }
 
+  let participantName = "Unknown";
+  try {
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("full_name")
+      .eq("id", user.id)
+      .maybeSingle();
+    if (profile?.full_name) {
+      participantName = profile.full_name;
+    } else {
+      participantName = user.email || "Unknown";
+    }
+  } catch (err) {
+    console.warn("registerForEvent: failed to fetch profile name", err);
+    participantName = user.email || "Unknown";
+  }
+
   const { data, error } = await supabase
     .from("registrations")
-    .insert({ event_id: eventId, user_id: user.id })
+    .insert({ 
+      event_id: eventId, 
+      user_id: user.id,
+      participant_name: participantName
+    })
     .select("*")
     .single();
 
@@ -372,28 +393,10 @@ export async function listAllRegistrations() {
     .order("created_at", { ascending: false });
 
   if (error) throw new Error(toFriendlyError(error, "Failed to load participant list"));
-  const rows = data || [];
-
-  try {
-    const userIds = Array.from(new Set(rows.map((r) => r.user_id).filter(Boolean)));
-    if (userIds.length) {
-      const { data: profiles } = await supabase.from("profiles").select("id, full_name").in("id", userIds);
-      const profileMap = (profiles || []).reduce((acc, p) => {
-        acc[p.id] = p;
-        return acc;
-      }, {});
-
-      return rows.map((r) => ({
-        ...r,
-        participant_name: r.participant_name || profileMap[r.user_id]?.full_name || "Unknown"
-      }));
-    }
-  } catch (err) {
-    // ignore profile attach errors and return rows as-is
-    console.warn("listAllRegistrations: failed to load profiles", err?.message || err);
-  }
-
-  return rows;
+  return (data || []).map((r) => ({
+    ...r,
+    participant_name: r.participant_name || "Unknown"
+  }));
 }
 
 export async function markAttendance(ticketCode, adminUserId = null) {
@@ -463,3 +466,276 @@ export async function markAttendance(ticketCode, adminUserId = null) {
 
   return data;
 }
+
+export async function logScanAttempt(scannerId, ticketCode, status, processingTimeMs = 500, deviceInfo = "Terminal A") {
+  if (!hasSupabase) {
+    const logs = JSON.parse(localStorage.getItem("eventra-scan-logs") || "[]");
+    const newLog = {
+      id: `scan-${Date.now()}`,
+      scanner_id: scannerId,
+      device_info: deviceInfo,
+      ticket_code: ticketCode,
+      status: status,
+      processing_time_ms: processingTimeMs,
+      scanned_at: new Date().toISOString()
+    };
+    logs.unshift(newLog);
+    localStorage.setItem("eventra-scan-logs", JSON.stringify(logs.slice(0, 50)));
+    return newLog;
+  }
+
+  const { data, error } = await supabase
+    .from("scan_logs")
+    .insert({
+      scanner_id: scannerId,
+      device_info: deviceInfo,
+      ticket_code: ticketCode,
+      status: status,
+      processing_time_ms: processingTimeMs
+    })
+    .select("*")
+    .maybeSingle();
+
+  if (error) {
+    console.warn("Failed to insert scan log in Supabase:", error);
+  }
+  return data;
+}
+
+export async function getScannerStats() {
+  if (!hasSupabase) {
+    const regs = getLocalRegistrations();
+    const att = getLocalAttendance();
+    const logs = JSON.parse(localStorage.getItem("eventra-scan-logs") || "[]");
+
+    const totalCheckedIn = att.filter(a => a.status === "present").length;
+    const vipCheckedIn = regs.filter(r => r.ticket_type === "vip" && r.attendance_status === "checked_in").length;
+    const fifteenMinAgo = Date.now() - 15 * 60 * 1000;
+    const activeScanners = new Set(
+      logs.filter(l => new Date(l.scanned_at).getTime() >= fifteenMinAgo && l.scanner_id).map(l => l.scanner_id)
+    ).size;
+    
+    const validLogs = logs.filter(l => l.processing_time_ms);
+    const avgScanTime = validLogs.length 
+      ? validLogs.reduce((acc, curr) => acc + curr.processing_time_ms, 0) / validLogs.length
+      : 500;
+
+    const recentHistory = logs.slice(0, 5).map(l => {
+      let name = l.ticket_code;
+      if (l.status === "success") {
+        const r = regs.find(reg => reg.ticket_code === l.ticket_code);
+        if (r) name = r.participant_name;
+      } else {
+        name = `Ticket #${l.ticket_code}`;
+      }
+      return {
+        id: l.id,
+        name: name,
+        success: l.status === "success",
+        time: new Date(l.scanned_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+      };
+    });
+
+    return {
+      totalCheckedIn,
+      vipCheckedIn,
+      activeScanners: activeScanners || 1,
+      avgScanTime: avgScanTime / 1000,
+      recentHistory
+    };
+  }
+
+  const { count: totalCheckedIn } = await supabase
+    .from("attendance")
+    .select("id", { count: "exact", head: true })
+    .eq("status", "present");
+
+  const { count: vipCheckedIn } = await supabase
+    .from("registrations")
+    .select("id", { count: "exact", head: true })
+    .eq("attendance_status", "checked_in")
+    .eq("ticket_type", "vip");
+
+  const fifteenMinsAgo = new Date(Date.now() - 15 * 60 * 1000).toISOString();
+  const { data: scannerData } = await supabase
+    .from("scan_logs")
+    .select("scanner_id")
+    .gte("scanned_at", fifteenMinsAgo);
+  const activeScanners = new Set((scannerData || []).map(d => d.scanner_id).filter(Boolean)).size;
+
+  const { data: scanTimeData } = await supabase
+    .from("scan_logs")
+    .select("processing_time_ms");
+  const totalLogs = scanTimeData?.length || 0;
+  const avgScanTime = totalLogs 
+    ? (scanTimeData.reduce((acc, curr) => acc + (curr.processing_time_ms || 500), 0) / totalLogs) / 1000 
+    : 0.5;
+
+  const { data: rawLogs } = await supabase
+    .from("scan_logs")
+    .select("*")
+    .order("scanned_at", { ascending: false })
+    .limit(5);
+  
+  const recentHistory = [];
+  if (rawLogs && rawLogs.length) {
+    const ticketCodes = rawLogs.map(l => l.ticket_code).filter(Boolean);
+    let attendeeMap = {};
+    if (ticketCodes.length) {
+      const { data: regs } = await supabase
+        .from("registrations")
+        .select("ticket_code, participant_name")
+        .in("ticket_code", ticketCodes);
+      
+      attendeeMap = (regs || []).reduce((acc, r) => {
+        acc[r.ticket_code] = r.participant_name || "Unknown";
+        return acc;
+      }, {});
+    }
+
+    rawLogs.forEach(l => {
+      recentHistory.push({
+        id: l.id,
+        name: l.status === "success" ? (attendeeMap[l.ticket_code] || "Attendee") : `Ticket #${l.ticket_code}`,
+        success: l.status === "success",
+        time: new Date(l.scanned_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+      });
+    });
+  }
+
+  return {
+    totalCheckedIn: totalCheckedIn || 0,
+    vipCheckedIn: vipCheckedIn || 0,
+    activeScanners: activeScanners || 1,
+    avgScanTime: parseFloat(avgScanTime.toFixed(1)) || 0.5,
+    recentHistory
+  };
+}
+
+export async function getDashboardAnalytics() {
+  if (!hasSupabase) {
+    const att = getLocalAttendance();
+    const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const flowMap = weekdays.reduce((acc, day) => {
+      acc[day] = 0;
+      return acc;
+    }, {});
+    
+    flowMap["Mon"] = 120;
+    flowMap["Tue"] = 230;
+    flowMap["Wed"] = 482;
+    flowMap["Thu"] = 310;
+    flowMap["Fri"] = 390;
+    flowMap["Sat"] = 180;
+    flowMap["Sun"] = 90;
+
+    att.forEach(a => {
+      if (a.checked_in_at) {
+        const day = weekdays[new Date(a.checked_in_at).getDay()];
+        flowMap[day] += 1;
+      }
+    });
+
+    const flowData = weekdays.map((day, idx) => ({
+      day_of_week: day,
+      day_num: idx + 1,
+      check_ins_count: flowMap[day]
+    }));
+
+    const todayStr = new Date().toDateString();
+    const attendanceToday = att.filter(a => a.checked_in_at && new Date(a.checked_in_at).toDateString() === todayStr).length;
+
+    return {
+      flowData,
+      peakDay: "Wed",
+      peakCount: 482,
+      attendanceToday: attendanceToday || 482
+    };
+  }
+
+  const { data: flowRows } = await supabase
+    .from("view_daily_attendance_flow")
+    .select("*")
+    .order("day_num");
+  
+  const flowData = flowRows || [];
+
+  let peakDay = "—";
+  let peakCount = 0;
+  if (flowData.length) {
+    const peak = [...flowData].sort((a, b) => b.check_ins_count - a.check_ins_count)[0];
+    peakDay = peak.day_of_week;
+    peakCount = peak.check_ins_count;
+  }
+
+  const todayStart = new Date();
+  todayStart.setHours(0, 0, 0, 0);
+  const { count: attendanceToday } = await supabase
+    .from("attendance")
+    .select("id", { count: "exact", head: true })
+    .gte("checked_in_at", todayStart.toISOString());
+
+  return {
+    flowData,
+    peakDay,
+    peakCount,
+    attendanceToday: attendanceToday || 0
+  };
+}
+
+export async function getManageEventsAnalytics() {
+  if (!hasSupabase) {
+    const regs = getLocalRegistrations();
+    return {
+      liveRegistrations: regs.length || 0,
+      peakEventTitle: "Global Tech Summit '24",
+      peakEventCapacityRate: 98
+    };
+  }
+
+  const { count: liveRegistrations } = await supabase
+    .from("registrations")
+    .select("id, event:events!inner(is_active)", { count: "exact", head: true })
+    .eq("event.is_active", true);
+
+  const { data: peakPerf } = await supabase
+    .from("view_event_peak_performance")
+    .select("title, capacity_percentage")
+    .order("capacity_percentage", { ascending: false })
+    .limit(1);
+
+  const peak = peakPerf?.[0];
+
+  return {
+    liveRegistrations: liveRegistrations || 0,
+    peakEventTitle: peak?.title || "—",
+    peakEventCapacityRate: peak ? Math.round(peak.capacity_percentage) : 0
+  };
+}
+
+export async function getAttendanceReportAnalytics(eventId) {
+  if (!hasSupabase) {
+    const intervals = ["08:00", "10:00", "12:00", "14:00", "16:00"];
+    const mockData = intervals.map(time => ({
+      hourly_interval: time,
+      check_ins_count: time === "08:00" ? 740 : time === "10:00" ? 212 : time === "12:00" ? 150 : 80
+    }));
+    return mockData;
+  }
+
+  const query = supabase
+    .from("view_hourly_check_ins")
+    .select("hourly_interval, check_ins_count");
+  
+  if (eventId && eventId !== "all" && eventId !== "All Events (filtering not supported by current API)") {
+    query.eq("event_id", eventId);
+  }
+
+  const { data, error } = await query;
+  if (error) {
+    console.error("Failed to load hourly check-in flow:", error);
+    return [];
+  }
+  return data || [];
+}
+
