@@ -13,13 +13,18 @@ create table if not exists public.events (
   id uuid primary key default gen_random_uuid(),
   title text not null,
   category text not null,
+  sub_category text,
   description text not null,
   date date not null,
+  start_time text,
   venue text not null,
   capacity int not null check (capacity > 0),
   price numeric(10,2) not null default 0,
   image_url text,
   is_active boolean not null default true,
+  registration_deadline date,
+  enable_waitlist boolean not null default true,
+  is_private boolean not null default false,
   created_by uuid references auth.users(id),
   created_at timestamptz not null default now()
 );

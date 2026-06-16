@@ -56,25 +56,82 @@ export function AuthProvider({ children }) {
     }
     // Add a timeout so an unresolved network call doesn't leave the app stuck on "loading".
     console.debug("AuthProvider: starting session sync");
-    let safetyTimer = setTimeout(() => {
+
+    let isMounted = true;
+    let safetyTimer = null;
+    const retryTimers = [];
+
+    function safeSetLoading(val) {
+      if (!isMounted) return;
+      setLoading(val);
+    }
+
+    safetyTimer = setTimeout(() => {
+      if (!isMounted) return;
       console.warn("AuthProvider: loading timeout — forcing load false");
-      setLoading(false);
+      safeSetLoading(false);
     }, 12000);
 
-    withTimeout(supabase.auth.getSession(), 8000, "Auth request timed out.")
-      .then(async ({ data }) => {
-        console.debug("AuthProvider: getSession resolved", !!data?.session?.user);
-        await syncSession(data.session?.user ?? null);
-      })
-      .catch((err) => {
+    // Try fetching the session with a simple retry to handle transient network/auth timeouts
+    async function attemptGetSession(retries = 1) {
+      if (!isMounted) return;
+      try {
+        const res = await withTimeout(supabase.auth.getSession(), 8000, "Auth request timed out.");
+        console.debug("AuthProvider: getSession resolved", !!res?.data?.session?.user);
+        if (!isMounted) return;
+        await syncSession(res.data?.session?.user ?? null);
+        clearTimeout(safetyTimer);
+        safeSetLoading(false);
+      } catch (err) {
         console.error("Auth session error:", err?.message || err);
+        // Fallback: if getSession fails (404/timeout), try getUser() which may succeed
+        if (isMounted) {
+          try {
+            const usr = await withTimeout(supabase.auth.getUser(), 5000, "getUser timed out");
+            if (usr?.data?.user) {
+              console.debug("AuthProvider: getUser fallback succeeded");
+              await syncSession(usr.data.user);
+              clearTimeout(safetyTimer);
+              safeSetLoading(false);
+              return;
+            }
+          } catch (fallbackErr) {
+            console.warn("AuthProvider: getUser fallback failed", fallbackErr?.message || fallbackErr);
+          }
+        }
+        if (retries > 0 && isMounted) {
+          console.debug("AuthProvider: retrying getSession, retries left:", retries - 1);
+          const id = setTimeout(() => attemptGetSession(retries - 1), 1000);
+          retryTimers.push(id);
+          return;
+        }
+        if (!isMounted) return;
+        // final fallback: restore from locally-stored session if available
+        try {
+          const raw = localStorage.getItem("eventra-session");
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (parsed?.user) {
+              console.debug("AuthProvider: restoring session from localStorage fallback");
+              setUser(parsed.user);
+              setRole(parsed.user.user_metadata?.role || "user");
+              clearTimeout(safetyTimer);
+              safeSetLoading(false);
+              return;
+            }
+          }
+        } catch (e) {
+          // ignore
+        }
+
         setUser(null);
         setRole("user");
-      })
-      .finally(() => {
         clearTimeout(safetyTimer);
-        setLoading(false);
-      });
+        safeSetLoading(false);
+      }
+    }
+
+    attemptGetSession(1);
 
     // Attach auth state change listener (be defensive about the return shape)
     const onChange = supabase.auth.onAuthStateChange(async (event, session) => {
@@ -91,6 +148,16 @@ export function AuthProvider({ children }) {
     const subscription = onChange?.data?.subscription || onChange?.subscription;
 
     return () => {
+      // mark unmounted and clear timers
+      try {
+        isMounted = false;
+      } catch (e) {}
+      try {
+        clearTimeout(safetyTimer);
+        retryTimers.forEach((id) => clearTimeout(id));
+      } catch (e) {
+        // ignore
+      }
       try {
         if (subscription && typeof subscription.unsubscribe === "function") subscription.unsubscribe();
       } catch (err) {
@@ -119,6 +186,14 @@ export function AuthProvider({ children }) {
           signedInRole = await resolveRole(data.user);
           setUser(data.user);
           setRole(signedInRole);
+          try {
+            localStorage.setItem(
+              "eventra-session",
+              JSON.stringify({ user: data.user, expires_at: data.session?.expires_at ?? null })
+            );
+          } catch (e) {
+            // ignore localStorage errors
+          }
         }
         return { error, role: signedInRole };
       },
